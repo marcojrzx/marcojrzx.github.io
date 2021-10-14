@@ -11,7 +11,7 @@
     <!-- style for the loader -->
     <style>
       .arjs-loader {
-        height: 100%;
+        height: 70%;
         width: 100%;
         position: absolute;
         top: 0;
@@ -32,6 +32,9 @@
   </head>
 
   <body style="margin : 0px; overflow: hidden;">
+    <div style="width: 100%; height: 20px;">
+      <h1>Version 3</h1>
+    </div>
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
       <div>Loading, please wait...</div>
@@ -57,12 +60,16 @@
           <a-entity
           gltf-model="./dino/scene.gltf"
               scale="30 30 30"
-              position="0 0 0"
+              position="0 60 0"
+              rotation="-90 0 0"
           >
           </a-entity>
       </a-nft>
       <!-- static camera that moves according to the device movemenents -->
       <a-entity camera></a-entity>
     </a-scene>
+    <script>
+      console.log("version s3ss");
+    </script>
   </body>
 </html>
