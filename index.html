@@ -33,7 +33,7 @@
 
   <body style="margin : 0px; overflow: hidden;">
     <div style="width: 100%; height: 20px;">
-      <h1>Version 3</h1>
+      <h1>Version 4</h1>
     </div>
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
@@ -41,6 +41,7 @@
     </div>
 
     <!-- a-frame scene -->
+    <div style="width: 100%; height: 50%;">
     <a-scene
       vr-mode-ui="enabled: false;"
       renderer="logarithmicDepthBuffer: true;"
@@ -68,8 +69,6 @@
       <!-- static camera that moves according to the device movemenents -->
       <a-entity camera></a-entity>
     </a-scene>
-    <script>
-      console.log("version s3ss");
-    </script>
+    </div>
   </body>
 </html>
