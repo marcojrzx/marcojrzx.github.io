@@ -46,7 +46,7 @@
         }
         if(!el.move && el.mousedown) {
         let rotationn = el.getAttribute('rotation');
-        el.setAttribute('rotation', {x: -40, y: rotationn.y + 0.4, z: 0});
+        el.setAttribute('rotation', {x: -40, y: rotationn.y + 2.5, z: 0});
         }
         if(!el.move && el.mousedownright) {
         let rotationn = el.getAttribute('rotation');
@@ -124,11 +124,19 @@
         var fooComponent = document.querySelector('[cubo]').components.cubo;
         fooComponent.left();
       }
+
+      function handleEnd(evt) {
+        evt.preventDefault();
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.upm();
+        
+      }
       
        function startup() {
          console.log("startup");
         var el = document.getElementById("leftid");
         el.addEventListener("touchstart", handleStart, false);
+        el.addEventListener("touchend", handleEnd, false);
         }
 
         document.addEventListener("DOMContentLoaded", startup);
