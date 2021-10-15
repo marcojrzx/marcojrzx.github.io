@@ -34,18 +34,18 @@
 
   <body style="margin : 0px; overflow: hidden;">
     <script>
-      AFRAME.registerComponent('helslo-world', {
+      AFRAME.registerComponent('hello-world', {
       tick: function () {
         var el = this.el;
-        var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -45, y: 0, z: 0};
+        var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -90, y: 0, z: 0};
         var rotation = el.getAttribute('rotation');
-        rotationTmp.y = rotation.y + 0.1;
+        rotationTmp.z = rotation.z + 0.1;
         el.setAttribute('rotation', rotationTmp);
       }
     });
     </script>
     <div style="width: 100%; height: 20px;">
-      <h1>Version 29</h1>
+      <h1>Version 33</h1>
     </div>
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
@@ -75,7 +75,7 @@
           gltf-model="./dino/scene.gltf"
               scale="25 25 25"
               position="50 50 0"
-              rotation="-90 0 60"
+              rotation="-90 0 0"
               gesture-handler
               hello-world>
           </a-entity>
