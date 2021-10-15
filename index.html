@@ -40,17 +40,15 @@
         },
         tick: function () {
           let el = this.el;
-          var rotationTmp = this.rotationTmp = this.rotationTmp || {x: 0, y: 0, z: 0};
+          var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -90, y: 0, z: 0};
           var rotation = el.getAttribute('rotation');
-          rotationTmp.x = rotation.x + 0.1;
           rotationTmp.y = rotation.y + 0.1;
-          rotationTmp.z = rotation.z + 0.1;
           el.setAttribute('rotation', rotationTmp);
         }
       });
     </script>
     <div style="width: 100%; height: 20px;">
-      <h1>Version 11</h1>
+      <h1>Version 13</h1>
     </div>
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
