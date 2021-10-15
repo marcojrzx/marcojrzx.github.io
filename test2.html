@@ -51,10 +51,19 @@
             el.setAttribute('rotation', rotationTmpd);
         }
         if(el.move3) {
-            let rotationTmpd = this.rotationTmpd = this.rotationTmpd || {x: -90, y: 0, z: 0};
-            let rotationd = el.getAttribute('rotation');
-            rotationTmpd.x = rotationd.x + 6;
-            el.setAttribute('rotation', rotationTmpd);
+            let rotationTmpt = this.rotationTmpt = this.rotationTmpt || {x: -90, y: 0, z: 0};
+            let rotationt = el.getAttribute('rotation');
+            rotationTmpt.x = rotationt.x + 6;
+            el.setAttribute('rotation', rotationTmpt);
+        }
+
+        if(el.move3 && el.move2 && el.move) {
+            let rotationTmpc = this.rotationTmpc = this.rotationTmpc || {x: -90, y: 0, z: 0};
+            let rotationc = el.getAttribute('rotation');
+            rotationTmpc.x = rotationc.x + 8;
+            rotationTmpc.y = rotationc.y + 8;
+            rotationTmpc.z = rotationc.z + 8;
+            el.setAttribute('rotation', rotationTmpc);
         }
       },
         
@@ -242,18 +251,20 @@
       
     </a-scene>
   </div>
-    <div style="width: 100%; height: 70px; background-color: red; z-index: 9999;" onclick="myFunction()" >
-    <p>button</p>
-  </div>
-  <div style="width: 100%; height: 70px; background-color: blue; z-index: 9999;" onclick="myFunctionDOS()" >
-    <p style="z-index: 9999;">button zz</p>
-  </div>
-  <div style="width: 100%; height: 70px; background-color: green; z-index: 9999;" onclick="myFunctionTres()" >
-    <p style="z-index: 9999;">button zz</p>
-  </div>
-  <div style="width: 100%; height: 70px; background-color: yellow; z-index: 9999;" onclick="myFunctionCuatro()" >
-    <p style="z-index: 9999;">button zz</p>
-  </div>
+  <div style="display: flex; flex-direction: row;">
+        <div style="width: 20%; height: 70px; background-color: red; z-index: 9999;" onclick="myFunction()" >
+        <p>button</p>
+    </div>
+    <div style="width: 20%; height: 70px; background-color: blue; z-index: 9999;" onclick="myFunctionDOS()" >
+        <p style="z-index: 9999;">button zz</p>
+    </div>
+    <div style="width: 20%; height: 70px; background-color: green; z-index: 9999;" onclick="myFunctionTres()" >
+        <p style="z-index: 9999;">button zz</p>
+    </div>
+    <div style="width: 20%; height: 70px; background-color: yellow; z-index: 9999;" onclick="myFunctionCuatro()" >
+        <p style="z-index: 9999;">button zz</p>
+    </div>
+ </div>
 
   
     
