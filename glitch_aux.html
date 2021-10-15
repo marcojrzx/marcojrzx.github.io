@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Scene - A-Frame</title>
+    <meta name="description" content="Basic Scene - A-Frame" />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <style>
+      a-scene {
+        height: 300px;
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      () => {
+        var move = true;
+      }
+    </script>
+    <script>
+      AFRAME.registerComponent('cubo', {
+      init: function () { this.el.move = true; this.el.mousedown = false; this.el.mousedownright = false},
+      tick: function () {
+        let el = this.el;
+        var rotationTmp = this.rotationTmp = this.rotationTmp || {x: 0, y: 0, z: 0};
+        var rotation = el.getAttribute('rotation');
+        rotationTmp.y = rotation.y + 0.5;
+        if(el.move) {
+        el.setAttribute('rotation', rotationTmp);
+        }
+        if(!el.move && el.mousedown) {
+        let rotationn = el.getAttribute('rotation');
+        el.setAttribute('rotation', {x: -40, y: rotationn.y + 0.4, z: 0});
+        }
+        if(!el.move && el.mousedownright) {
+        let rotationn = el.getAttribute('rotation');
+        el.setAttribute('rotation', {x: -40, y: rotationn.y - 0.4, z: 0});
+        }
+      },
+        
+      qux: function () {
+        console.log("window")
+        let el = this.el;
+        if(el.move ){
+          el.move = false;
+        }else{
+          el.move = true;
+        }
+        el.setAttribute('rotation', {x: -40, y: 0, z: 0});
+        
+      },
+      left: function () {
+        let el = this.el;
+        el.mousedown = true;
+        
+      },  
+      up: function () {
+        let el = this.el;
+        el.mousedown = false;
+      },
+      right : function (){
+        let el = this.el;
+        el.mousedown = false;
+        el.mousedownright = true;
+      },
+      upr: function () {
+        let el = this.el;
+        el.mousedownright = false;
+      },
+    });
+    </script>
+    <script>
+      function myFunction() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.qux();
+        }
+      
+      function left() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.left();
+        }
+      
+      function upm() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.up();
+        }
+      
+      
+      function right() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.right();
+        }
+      
+      function upr() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.upr();
+        }
+    </script>
+      
+    
+    <a-scene  embedded>
+      <a-box color="#4CC3D9" position="-1 0.5 -3" rotation="0 45 0" cubo></a-box>
+      <a-cylinder
+        color="#FFC65D"
+        position="1 0.75 -3"
+        radius="0.5"
+        height="1.5"
+      >
+      </a-cylinder>
+      <a-sphere color="#EF2D5E" position="0 1.25 -5" radius="1.25"></a-sphere>
+      <a-plane
+        color="#7BC8A4"
+        position="0 0 -5"
+        rotation="-90 0 0"
+        width="4"
+        height="4"
+      ></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+      
+    </a-scene>
+    <div style="width: 18%; background-color: red; z-index: 9999;" onclick="myFunction()">
+       <h1>button</h1>
+    </div>
+    <div style="width: 18%; background-color: red; z-index: 9999;" onmousedown="left()" onmouseup="upm()">
+       <h1>left</h1>
+    </div>
+    <div style="width: 18%; background-color: red; z-index: 9999;" onmousedown="right()" onmouseup="upr()">
+       <h1>right</h1>
+    </div>
+  </body>
+</html>

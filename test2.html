@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Image based tracking AR.js demo</title>
+    <!-- import aframe and then ar.js with image tracking / location based features -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="gesture-detector.js"></script>
+    <script src="gesture-handler.js"></script>
+    <!-- style for the loader -->
+    <style>
+      .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body style="margin : 0px; overflow: hidden;">
+    <script>
+      AFRAME.registerComponent('cubo', {
+      init: function () { this.el.move = false; this.el.mousedown = false; this.el.mousedownright = false},
+      tick: function () {
+        let el = this.el;
+        if(el.move) {
+            var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -90, y: 0, z: 0};
+            var rotation = el.getAttribute('rotation');
+            rotationTmp.z = rotation.z + 0.5;
+            el.setAttribute('rotation', rotationTmp);
+        }
+        if(!el.move && el.mousedown) {
+        let rotationn = el.getAttribute('rotation');
+        el.setAttribute('rotation', {x: -40, y: rotationn.y + 2.5, z: 0});
+        }
+        if(!el.move && el.mousedownright) {
+        let rotationn = el.getAttribute('rotation');
+        el.setAttribute('rotation', {x: -40, y: rotationn.y - 0.4, z: 0});
+        }
+      },
+        
+      qux: function () {
+        el.setAttribute('rotation', {x: -90, y: 0, z: 0});
+        console.log("window")
+        let el = this.el;
+        if(el.move){
+          el.move = false;
+        }else{
+          el.move = true;
+        }
+      },
+      left: function () {
+        console.log("left")
+        let el = this.el;
+        el.mousedown = true;
+        
+      },  
+      up: function () {
+        console.log("up")
+        let el = this.el;
+        el.mousedown = false;
+      },
+      right : function (){
+        console.log("right")
+        let el = this.el;
+        el.mousedown = false;
+        el.mousedownright = true;
+      },
+      upr: function () {
+        console.log("upr")
+        let el = this.el;
+        el.mousedownright = false;
+      },
+    });
+    </script>
+    <script>
+      function myFunction() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.qux();
+        }
+      
+      function left() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.left();
+        }
+      
+      function upm() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.up();
+        }
+      
+      
+      function right() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.right();
+        }
+      
+      function upr() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.upr();
+        }
+    </script>
+    <script>
+      function handleStart(evt) {
+        console.log("handle >>> ");
+        console.log(evt);
+        evt.preventDefault();
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.left();
+      }
+
+      function handleEnd(evt) {
+        evt.preventDefault();
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.upm();
+        
+      }
+      
+       function startup() {
+         console.log("startup");
+        var el = document.getElementById("leftid");
+        el.addEventListener("touchstart", handleStart, false);
+        el.addEventListener("touchend", handleEnd, false);
+        }
+
+        document.addEventListener("DOMContentLoaded", startup);
+
+    </script>
+    <div style="width: 100%; height: 20px;">
+      <h1>Version test2</h1>
+    </div>
+    <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
+    <div class="arjs-loader">
+      <div>Loading, please wait...</div>
+    </div>
+
+    <!-- a-frame scene -->
+    <div style="width: 100%; height: 400px;">
+    <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+      gesture-detector
+      id="scene">
+      <!-- a-nft is the anchor that defines an Image Tracking entity -->
+      <!-- on 'url' use the path to the Image Descriptors created before. -->
+      <!-- the path should end with the name without the extension e.g. if file is trex.fset' the path should end with trex -->
+      <a-nft
+        type="nft"
+        url="./desc/test1"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5">
+          <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
+          <a-entity
+          gltf-model="./dino/scene.gltf"
+              scale="25 25 25"
+              position="-10 50 0"
+              rotation="0 0 0"
+              gesture-handler
+              cubo>
+          </a-entity>
+      </a-nft>
+      <!-- static camera that moves according to the device movemenents -->
+      <a-entity camera></a-entity>
+      <!--<a-light type="directional" position="0 0 0" rotation="-10 50 0" target="#directionaltarget">
+        <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
+      </a-light>-->
+      
+    </a-scene>
+  </div>
+    <div style="width: 100%; height: 70px; background-color: red; z-index: 9999;" onclick="myFunction()" >
+    <h1>button</h1>
+  </div>
+    
+    
+  </body>
+</html>
