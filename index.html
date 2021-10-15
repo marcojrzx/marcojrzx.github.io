@@ -83,7 +83,9 @@
       </a-nft>
       <!-- static camera that moves according to the device movemenents -->
       <a-entity camera></a-entity>
-      <a-entity light="type: ambient; color: yellow"></a-entity>
+      <a-light type="directional" position="0 0 0" rotation="-10 50 0" target="#directionaltarget">
+        <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
+      </a-light>
       
     </a-scene>
   </div>
