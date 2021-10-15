@@ -35,13 +35,19 @@
   <body style="margin : 0px; overflow: hidden;">
     <script>
       AFRAME.registerComponent('cubo', {
-      init: function () { this.el.move = false; this.el.mousedown = false; this.el.mousedownright = false},
+      init: function () { this.el.move = false; this.el.move2 = false; this.el.mousedown = false; this.el.mousedownright = false},
       tick: function () {
         let el = this.el;
         if(el.move) {
             var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -90, y: 0, z: 0};
             var rotation = el.getAttribute('rotation');
             rotationTmp.y = rotation.y + 2;
+            el.setAttribute('rotation', rotationTmp);
+        }
+        if(el.move2) {
+            var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -90, y: 0, z: 0};
+            var rotation = el.getAttribute('rotation');
+            rotationTmp.z = rotation.z + 2;
             el.setAttribute('rotation', rotationTmp);
         }
         if(!el.move && el.mousedown) {
@@ -61,6 +67,17 @@
           el.move = false;
         }else{
           el.move = true;
+        }
+        el.setAttribute('rotation', {x: -90, y: 0, z: 0});
+      },
+      quxDOS: function () {
+        console.log("window")
+        let el = this.el;
+        el.move = false;
+        if(el.move2){
+          el.move2 = false;
+        }else{
+          el.move2 = true;
         }
         el.setAttribute('rotation', {x: -90, y: 0, z: 0});
       },
@@ -92,6 +109,11 @@
       function myFunction() {
         var fooComponent = document.querySelector('[cubo]').components.cubo;
         fooComponent.qux();
+        }
+
+        function myFunctionDOS() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.quxDOS();
         }
       
       function left() {
@@ -142,7 +164,7 @@
 
     </script>
     <div style="width: 100%; height: 20px;">
-      <h1>Version test2</h1>
+      <h1>Version test22</h1>
     </div>
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
@@ -187,7 +209,10 @@
     </a-scene>
   </div>
     <div style="width: 100%; height: 70px; background-color: red; z-index: 9999;" onclick="myFunction()" >
-    <h1>button</h1>
+    <p>button</p>
+  </div>
+  <div style="width: 100%; height: 70px; background-color: red; z-index: 9999;" onclick="myFunctionDOS()" >
+    <p style="z-index: 9999;">button zz</p>
   </div>
     
     
