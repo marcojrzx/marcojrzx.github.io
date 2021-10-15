@@ -35,7 +35,7 @@
   <body style="margin : 0px; overflow: hidden;">
     <script>
       AFRAME.registerComponent('cubo', {
-      init: function () { this.el.move = false; this.el.move2 = false; this.el.mousedown = false; this.el.mousedownright = false},
+      init: function () { this.el.move3 = false; this.el.move = false; this.el.move2 = false; this.el.mousedown = false; this.el.mousedownright = false},
       tick: function () {
         let el = this.el;
         if(el.move) {
@@ -50,13 +50,11 @@
             rotationTmpd.z = rotationd.z + 4;
             el.setAttribute('rotation', rotationTmpd);
         }
-        if(!el.move && el.mousedown) {
-        let rotationn = el.getAttribute('rotation');
-        el.setAttribute('rotation', {x: -40, y: rotationn.y + 2.5, z: 0});
-        }
-        if(!el.move && el.mousedownright) {
-        let rotationn = el.getAttribute('rotation');
-        el.setAttribute('rotation', {x: -40, y: rotationn.y - 0.4, z: 0});
+        if(el.move3) {
+            let rotationTmpd = this.rotationTmpd = this.rotationTmpd || {x: -90, y: 0, z: 0};
+            let rotationd = el.getAttribute('rotation');
+            rotationTmpd.x = rotationd.x + 6;
+            el.setAttribute('rotation', rotationTmpd);
         }
       },
         
@@ -79,6 +77,18 @@
           el.move2 = false;
         }else{
           el.move2 = true;
+        }
+        el.setAttribute('rotation', {x: -90, y: 0, z: 0});
+      },
+      quxTRES: function () {
+        console.log("window")
+        let el = this.el;
+        el.move = false;
+        el.move2 = false;
+        if(el.move3){
+          el.move3 = false;
+        }else{
+          el.move3 = true;
         }
         el.setAttribute('rotation', {x: -90, y: 0, z: 0});
       },
@@ -115,6 +125,11 @@
         function myFunctionDOS() {
         var fooComponent = document.querySelector('[cubo]').components.cubo;
         fooComponent.quxDOS();
+        }
+
+        function myFunctionTres() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.quxTRES();
         }
       
       function left() {
@@ -212,9 +227,14 @@
     <div style="width: 100%; height: 70px; background-color: red; z-index: 9999;" onclick="myFunction()" >
     <p>button</p>
   </div>
-  <div style="width: 100%; height: 70px; background-color: red; z-index: 9999;" onclick="myFunctionDOS()" >
+  <div style="width: 100%; height: 70px; background-color: blue; z-index: 9999;" onclick="myFunctionDOS()" >
     <p style="z-index: 9999;">button zz</p>
   </div>
+  <div style="width: 100%; height: 70px; background-color: green; z-index: 9999;" onclick="myFunctionTres()" >
+    <p style="z-index: 9999;">button zz</p>
+  </div>
+
+  
     
     
   </body>
