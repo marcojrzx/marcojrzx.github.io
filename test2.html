@@ -45,10 +45,10 @@
             el.setAttribute('rotation', rotationTmp);
         }
         if(el.move2) {
-            var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -90, y: 0, z: 0};
-            var rotation = el.getAttribute('rotation');
-            rotationTmp.z = rotation.z + 2;
-            el.setAttribute('rotation', rotationTmp);
+            let rotationTmpd = this.rotationTmpd = this.rotationTmpd || {x: -90, y: 0, z: 0};
+            let rotationd = el.getAttribute('rotation');
+            rotationTmpd.z = rotationd.z + 4;
+            el.setAttribute('rotation', rotationTmpd);
         }
         if(!el.move && el.mousedown) {
         let rotationn = el.getAttribute('rotation');
