@@ -39,7 +39,7 @@
         var el = this.el;
         var rotationTmp = this.rotationTmp = this.rotationTmp || {x: 0, y: 0, z: 0};
         var rotation = el.getAttribute('rotation');
-        rotationTmp.z = rotation.z + 2;
+        rotationTmp.y = rotation.y + 2;
         el.setAttribute('rotation', rotationTmp);
       }
     });
