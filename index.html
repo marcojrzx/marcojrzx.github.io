@@ -35,18 +35,14 @@
   <body style="margin : 0px; overflow: hidden;">
     <script>
       AFRAME.registerComponent('hello-world', {
-       
-        init: function () {
-         console.log("cargado")
-        },
-        /*tick: function () {
-          let el = this.el;
-          var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -90, y: 0, z: 0};
-          var rotation = el.getAttribute('rotation');
-          rotationTmp.y = rotation.y + 0.1;
-          el.setAttribute('rotation', rotationTmp);
-        }*/
-      });
+      tick: function () {
+        var el = this.el;
+        var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -45, y: 0, z: 0};
+        var rotation = el.getAttribute('rotation');
+        rotationTmp.y = rotation.y + 0.1;
+        el.setAttribute('rotation', rotationTmp);
+      }
+    });
     </script>
     <div style="width: 100%; height: 20px;">
       <h1>Version 18</h1>
