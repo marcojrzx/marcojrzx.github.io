@@ -41,7 +41,7 @@
         if(el.move) {
             var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -90, y: 0, z: 0};
             var rotation = el.getAttribute('rotation');
-            rotationTmp.z = rotation.z + 0.5;
+            rotationTmp.z = rotation.z + 2;
             el.setAttribute('rotation', rotationTmp);
         }
         if(!el.move && el.mousedown) {
@@ -55,7 +55,6 @@
       },
         
       qux: function () {
-        el.setAttribute('rotation', {x: -90, y: 0, z: 0});
         console.log("window")
         let el = this.el;
         if(el.move){
@@ -63,6 +62,7 @@
         }else{
           el.move = true;
         }
+        el.setAttribute('rotation', {x: -90, y: 0, z: 0});
       },
       left: function () {
         console.log("left")
