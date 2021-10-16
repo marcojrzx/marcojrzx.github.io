@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Scene - A-Frame</title>
+    <meta name="description" content="Basic Scene - A-Frame" />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <style>
+      a-scene {
+        height: 800px;
+        width: 800px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+    
+    function codeAddress() {
+                const event3 = new Event('build');
+
+        let elemx = document.getElementById("xxx")
+        // Listen for the event.
+        elemx.addEventListener('build', function (e) { console.log("disparado") }, false);
+            alert('ok');
+
+        }
+    window.onload = codeAddress;
+    </script>
+    <script>
+      //marcojrzx.github.io/dino/scene.gltf
+      AFRAME.registerComponent('cubo', {
+      init: function () { this.el.move = true; this.el.mousedown = false; this.el.mousedownright = false},
+      tick: function () {
+        let el = this.el;
+        var rotationTmp = this.rotationTmp = this.rotationTmp || {x: -90, y: 0, z: 0};
+        var rotation = el.getAttribute('rotation');
+        rotationTmp.z = rotation.z + 0.5;
+        if(el.move) {
+        //el.setAttribute('rotation', rotationTmp);
+        }
+        if(!el.move && el.mousedown) {
+        let rotationn = el.getAttribute('rotation');
+          rotationn.y = rotationn.y + 1;
+        //el.setAttribute('rotation', {x: -40, y: rotationn.y + 0.4, z: 0});
+          el.setAttribute('rotation', rotationn);
+        }
+        if(!el.move && el.mousedownright) {
+        let rotationn = el.getAttribute('rotation');
+        el.setAttribute('rotation', {x: -40, y: rotationn.y - 0.4, z: 0});
+        }
+      },
+        
+      qux: function () {
+        console.log("window")
+        let el = this.el;
+        if(el.move ){
+          el.move = false;
+        }else{
+          el.move = true;
+        }
+        el.setAttribute('rotation', {x: -40, y: 0, z: 0});
+        
+      },
+      left: function () {
+        let el = this.el;
+        el.mousedown = true;
+        
+      },  
+      up: function () {
+        let el = this.el;
+        el.mousedown = false;
+      },
+      right : function (){
+        let el = this.el;
+        el.mousedown = false;
+        el.mousedownright = true;
+      },
+      upr: function () {
+        let el = this.el;
+        el.mousedownright = false;
+      },
+    });
+    </script>
+    <script>
+      function myFunction() {
+        //var fooComponent = document.querySelector('[cubo]').components.cubo;
+        //fooComponent.qux();
+           var entity = document.querySelector('a-entity');
+            console.log(entity)
+           entity.object3D.rotation.set(
+            THREE.Math.degToRad("-10"),
+            THREE.Math.degToRad("90"),
+            THREE.Math.degToRad("0")
+          );
+ 
+        }
+      
+      function left() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.left();
+        }
+      
+      function upm() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.up();
+        }
+      
+      
+      function right() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.right();
+        }
+      
+      function upr() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.upr();
+        }
+      
+      function animate() {
+        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        fooComponent.upr();
+        }
+    </script>
+      
+    
+    <a-scene  light="defaultLightsEnabled: false" embedded>
+      <a-entity
+          gltf-model="https://marcojrzx.github.io/dino/scene.gltf"
+              scale="2 2 2"
+              position="0 0 -5" height="0" rotation="-90 0 0" color="red"  animation="property: rotation; to: 10 360 360 ; loop: false; dur: 10000 ; delay: 2000;" 
+               animation__2="property: rotation; from: 10 360 360 ; to: -90 0 0 ; loop: false; dur: 3000; delay: 16000"  
+              gesture-handler
+              cubo>
+          </a-entity>
+      
+      
+      <a-sky color="#ECECEC"></a-sky>
+      <a-light type="directional" position="0 0 0" rotation="-10 50 0" target="#directionaltarget">
+        <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
+      </a-light>
+    </a-scene>
+    <!---<div id="xxx" style="width: 18%; background-color: red; z-index: 9999;" onclick="myFunction()">
+       <h1>button</h1>
+    </div>
+    <div style="width: 18%; background-color: red; z-index: 9999;" onmousedown="left()" onmouseup="upm()">
+       <h1>left</h1>
+    </div>
+    <div style="width: 18%; background-color: red; z-index: 9999;" onmousedown="right()" onmouseup="upr()">
+       <h1>right</h1>
+    </div>-->
+  </body>
+</html>
