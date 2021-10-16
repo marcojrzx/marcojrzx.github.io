@@ -34,7 +34,7 @@
 
   <body style="margin : 0px; overflow: hidden;">
     <script>
-      AFRAME.registerComponent('cubo', {
+      AFRAME.registerComponent('cubox', {
       init: function () { this.el.move = true; this.el.mousedown = false; this.el.mousedownright = false},
       tick: function () {
         let el = this.el;
@@ -173,6 +173,8 @@
           <a-entity
           gltf-model="./dino/scene.gltf"
               scale="25 25 25"
+              animation="property: rotation; to: 10 360 360 ; loop: false; dur: 10000 ; delay: 2000;" 
+               animation__2="property: rotation; from: 10 360 360 ; to: -90 0 0 ; loop: false; dur: 3000; delay: 16000" 
               position="-10 50 0"
               rotation="0 0 0"
               gesture-handler
