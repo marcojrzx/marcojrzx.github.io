@@ -90,7 +90,10 @@
 
       evento: function () {
         //let event = new Event('build');
-        this.el.emit("build");
+        this.el.emit("build"); //15000
+        setTimeout(() => {
+          this.el.emit("secc");
+        }, 15000);
       }
     });
     </script>
@@ -186,7 +189,7 @@
               position="-2 0 0"
               rotation="0 0 0"
               animation="property: rotation; to: 10 360 360 ; loop: false; dur: 10000 ; delay: 3000; startEvents: build" 
-              animation__2="property: rotation; from: 10 360 360 ; to: -90 0 0 ; loop: false; dur: 3000; delay: 2000" 
+              animation__2="property: rotation; from: 10 360 360 ; to: -90 0 0 ; loop: false; dur: 3000; delay: 2000; startEvents: secc" 
               gesture-handler
               cubo>
           </a-entity>
