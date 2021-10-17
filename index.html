@@ -89,40 +89,40 @@
       },
 
       evento: function () {
-        let event = new Event('build');
-        this.el.dispatchEvent(event);
+        //let event = new Event('build');
+        this.el.emit("build");
       }
     });
     </script>
     <script>
       function myFunction() {
-        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        let fooComponent = document.querySelector('[cubo]').components.cubo;
         fooComponent.qux();
         }
       
       function left() {
-        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        let fooComponent = document.querySelector('[cubo]').components.cubo;
         fooComponent.left();
         }
       
       function upm() {
-        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        let fooComponent = document.querySelector('[cubo]').components.cubo;
         fooComponent.up();
         }
       
       
       function right() {
-        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        let fooComponent = document.querySelector('[cubo]').components.cubo;
         fooComponent.right();
         }
       
       function upr() {
-        var fooComponent = document.querySelector('[cubo]').components.cubo;
+        let fooComponent = document.querySelector('[cubo]').components.cubo;
         fooComponent.upr();
         }
 
         function eventoCall() {
-          var fooComponent = document.querySelector('[cubo]').components.cubo;
+          let fooComponent = document.querySelector('[cubo]').components.cubo;
           fooComponent.evento();
         }
     </script>
@@ -144,12 +144,12 @@
       
        function startup() {
          console.log("startup");
-        var el = document.getElementById("leftid");
-        el.addEventListener("touchstart", handleStart, false);
-        el.addEventListener("touchend", handleEnd, false);
+        //var el = document.getElementById("leftid");
+        //el.addEventListener("touchstart", handleStart, false);
+        //el.addEventListener("touchend", handleEnd, false);
         }
 
-        document.addEventListener("DOMContentLoaded", startup);
+        //document.addEventListener("DOMContentLoaded", startup);
 
     </script>
     <div style="width: 100%; height: 20px;">
