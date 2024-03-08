@@ -8,10 +8,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <style>
-    body {
-      background-color: #212b5c;
-    }
-
     @font-face {
       font-family: 'comic';
       src: url('./assets/fonts/HVD_Comic_Serif_Pro.otf') format('opentype');
@@ -31,7 +27,14 @@
       color: #00becd;
       font-family: 'comic';
       text-shadow: 3px 3px 2px black;
-      ;
+    }
+
+    .text-title-nosotros {
+      color: #00becd;
+      font-family: 'comic';
+      text-shadow: 3px 3px 2px black;
+      font-size: 26px;
+      margin-bottom: 35px;
     }
 
     .text-subtitle {
@@ -80,19 +83,119 @@
       display: none;
     }
 
-    @media (max-width: 990px) {
-      .text-section {
-        margin-top: 120%;
-        margin-left: 1%;
-      }
+    .overlay {
+      display: none;
+    }
 
+    .torito-mecanico {
+      width: 20vw;
+      height: 500px;
+      background-image: url("./assets/torito_azul.jpeg");
+      background-position: center;
+      margin-right: 15px;
+    }
+
+
+    .camera {
+      width: 20vw;
+      height: 500px;
+      background-image: url("./assets/camera360.jpeg");
+      background-position: 30%;
+      background-size: cover;
+      margin-right: 15px;
+    }
+
+    .canion {
+      width: 20vw;
+      height: 500px;
+      background-image: url("./assets/canion.png");
+      background-position: center;
+      background-size: cover;
+      margin-right: 15px;
+    }
+
+    .jumping {
+      width: 20vw;
+      height: 500px;
+      background-image: url("./assets/jumping.jpeg");
+      background-position: center;
+      background-size: cover;
+      margin-right: 15px;
+    }
+
+    .torito-mecanico:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.556);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+    }
+
+    .camera:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.556);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+    }
+
+    .canion:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.556);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+    }
+
+    .jumping:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.556);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+    }
+
+    @media (max-width:800px) {
       .ims {
         display: none;
       }
 
       .imsM {
         display: block;
+        margin-left: 25%;
       }
+    }
+
+    @media (max-width:400px) {
+      .ims {
+        display: none;
+      }
+
+      .imsM {
+        display: block;
+        margin-left: 0%;
+      }
+    }
+
+    @media (max-width: 990px) {
+      .text-section {
+        margin-top: 120%;
+        margin-left: 1%;
+      }
+
+
 
       .toritoCom {
         width: 275px;
@@ -203,6 +306,69 @@
       justify-content: center;
 
       align-items: center;
+
+      p {
+        font-size: 22px;
+        color: #dba0c1;
+      }
+    }
+  </style>
+  <style>
+    body {
+      background-color: #232b59;
+    }
+
+    .slidd {
+      z-index: 1;
+      background-color: #000000cf !important;
+      position: absolute;
+    }
+
+    @font-face {
+      font-family: 'comic';
+      src: url('./assets/fonts/HVD_Comic_Serif_Pro.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .video-container {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Just styling the content of the div, the *magic* in the previous rules */
+    .video-container .caption {
+      z-index: 1;
+      position: relative;
+      text-align: center;
+      background-color: #00000087;
+      padding: 10px;
+      height: 100%;
+    }
+
+    .prox {
+      color: #00becd;
+      font-family: 'comic';
+      text-shadow: 3px 3px 2px black;
+    }
+
+    .imgfit {
+      width: 50%;
+    }
+
+    @media (max-width:500px) {
+      .imgfit {
+        width: 100%;
+      }
     }
   </style>
 
@@ -216,14 +382,25 @@
     function toInicio() {
       console.log("INICIO");
       closeMenu();
-      window.scrollTo(0,-1)
+      window.scrollTo(0, -1)
     }
 
     function toNosotros() {
       console.log("NOSOTROS");
       closeMenu();
-      const element = document.getElementById("nosotros");
-      element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      let y = document.querySelector('#nosotros').getBoundingClientRect().top;
+      //const element = document.getElementById("nosotros");
+      //element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+      window.scrollTo(0, y - 100)
+    }
+
+    function toServicios() {
+      console.log("NOSOTROS");
+      closeMenu();
+      let y = document.querySelector('#servicios').getBoundingClientRect().top;
+      //const element = document.getElementById("nosotros");
+      //element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+      window.scrollTo(0, y - 100)
     }
   </script>
 </head>
@@ -248,23 +425,32 @@
       <div class="menu-box">
         <h1 class="text-title " onclick="toInicio()">INICIO</h1>
         <h1 class="text-title " onclick="toNosotros()">NOSOTROS</h1>
-        <h1 class="text-title ">SERVICIOS</h1>
+        <h1 class="text-title " onclick="toServicios()">SERVICIOS</h1>
         <h1 class="text-title ">CONTACTO</h1>
       </div>
     </div>
     <!-- menu * -->
   </nav>
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="../assets/party.mp4" type="video/mp4" />
+    </video>
+    <!--<div class="caption">
+        <img class="imgfit" src="../assets/toritocompleto.png" alt="">
+        <h1 class="prox">PROXIMAMENTE</h1>
+        <h3 style="color:white"> CONTACTO </h3>
+       <a href="https://www.facebook.com/profile.php?id=100088666271939&locale=es_LA" target="_blank" rel="noopener noreferrer"> <img src="assets/face.png" width="5%"></a>
+       <a href="https://wa.me+5212224479066 " target="_blank" rel="noopener noreferrer"> <img src="../assets/whats.png" alt="" width="5%"></a>
 
-  <div id="inicio" class="container-fluid ">
-
-    <div class="w-full h-screen flex  justify-center">
+    </div>-->
+    <div class="w-full h-screen flex  justify-center slidd">
       <div class="max-w-[1000px]">
         <div x-data="{ activeSlide: 1, slideCount: 3 }" class="overflow-hidden relative">
           <!-- Slider -->
           <!-- You can remove x-init if you dont want to autoplay -->
           <div class="whitespace-nowrap transition-transform duration-500 ease-in-out"
             :style="'transform: translateX(-' + (activeSlide - 1) * 100.5 + '%)'"
-            x-init="setInterval(() => { activeSlide = activeSlide < slideCount ? activeSlide + 1 : 1 }, 5000)">
+            x-init="setInterval(() => { activeSlide = activeSlide < slideCount ? activeSlide + 1 : 1 }, 500000)">
             <!-- Item 1 -->
             <div class="inline-block w-full">
               <div class="text-section">
@@ -315,11 +501,81 @@
       </div>
     </div>
   </div>
+
+
   <div id="nosotros" class="container-fluid" style="height: 100vh; padding: 20% 5% 3% 5%;">
     <div class="sectionIN">
-      <h1 class="text-title">NOSOTROS</h1>
+      <h1 class="text-title-nosotros">NOSOTROS</h1>
+      <div style="display: flex;
+      justify-content: space-around; margin-bottom: 50px;">
+        <img src="./assets/imgs/nosotros2.jpeg" width="30%" style="transform: rotate(10deg)">
+        <img src="./assets/imgs/nosotros1.jpeg" width="30%">
+        <img src="./assets/imgs/nosotros1.jpeg" width="30%" style="transform: rotate(-10deg)">
+      </div>
+      <p>Atracciones Torito Playense es una empresa
+        100% Quintanaroense dedicada a la animación y
+        diversión de niños y adultos.</p><br>
+      <p>Nuestra empresa surge a partir de las ideas de 2
+        socios apasionados por la diversión infantil,
+        quienes consolidan su proyecto a partir de la
+        bonita tradición mexicana del TORO MECANICO.</p><br>
+      <p>El Torito Playense se ha consolidado en nuestro
+        bello estado, como una empresa con un
+        concepto único, original y divertido para la
+        distracción de toda la familia.</p>
     </div>
   </div>
+  <div id="servicios" class="container-fluid" style="height: 100vh; padding: 20% 5% 3% 5%;">
+    <div class="sectionIN">
+      <h1 class="text-title-nosotros">SERVICIOS</h1>
+      <div style="display:flex">
+        <div style="display: flex;
+      justify-content: space-around; margin-bottom: 50px;">
+          <div class="jumping">
+            <div class="overlay">
+              <img src="./assets/icons/icono2_w.png" alt="" srcset="">
+              <h1 class="text-title">JUMPING INFLABLES</h1>
+              <button id="info-btn">+info</button>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex;
+      justify-content: space-around; margin-bottom: 50px;">
+          <div class="torito-mecanico">
+            <div class="overlay">
+              <img src="./assets/icons/icono1_w.png" alt="" srcset="">
+              <h1 class="text-title">TORITO MECANICO</h1>
+              <p style="font-size: 18px; color: white;"> Adultos y niños </p>
+              <button id="info-btn">+info</button>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex;
+      justify-content: space-around; margin-bottom: 50px;">
+          <div class="camera">
+            <div class="overlay">
+              <img src="./assets/icons/icono3_w.png" alt="" srcset="">
+              <h1 class="text-title">Camara 360</h1>
+              <button id="info-btn">+info</button>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex;
+      justify-content: space-around; margin-bottom: 50px;">
+          <div class="canion">
+            <div class="overlay">
+              <img src="./assets/icons/icono5_w.png" alt="" srcset="">
+              <h1 class="text-title">CAÑON DE ESPUMA</h1>
+              <button id="info-btn">+info</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
