@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    @font-face {
+      font-family: 'comic';
+      src: url('./assets/fonts/HVD_Comic_Serif_Pro.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .text-section {
+      z-index: 999999;
+      position: absolute;
+      margin-top: 50%;
+
+      margin-left: 60px;
+    }
+
+    .text-title {
+      color: #00becd;
+      font-family: 'comic';
+      text-shadow: 3px 3px 2px black;
+    }
+
+    .text-title-nosotros {
+      color: #00becd;
+      font-family: 'comic';
+      text-shadow: 3px 3px 2px black;
+      font-size: 26px;
+      margin-bottom: 35px;
+    }
+
+    .text-subtitle {
+      color: #fff;
+      text-shadow: 3px 3px 2px black;
+      ;
+    }
+
+    #info-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      ;
+      outline: none;
+      font-weight: 600;
+      border: none;
+      background-color: #fff;
+      border-width: 3px;
+      border-style: solid;
+      border-radius: 20px;
+      cursor: pointer;
+      color: #2dacd1;
+      border-color: #2dacd1;
+    }
+
+    #info-btn:hover {
+      color: #fff;
+      background-color: #2dacd1;
+    }
+
+    .text-box {
+      line-height: 0px;
+      background-color: #ffffff1a;
+    }
+
+
+    .toritoCom {
+      width: 275px;
+      margin-top: 25px;
+    }
+
+    .ims {
+      display: block;
+    }
+
+    .imsM {
+      display: none;
+    }
+
+    .overlay {
+      display: none;
+    }
+
+    .torito-mecanico {
+      width: 20vw;
+      height: 500px;
+      background-image: url("./assets/torito_azul.jpeg");
+      background-position: center;
+      margin-right: 15px;
+    }
+
+
+    .camera {
+      width: 20vw;
+      height: 500px;
+      background-image: url("./assets/camera360.jpeg");
+      background-position: 30%;
+      background-size: cover;
+      margin-right: 15px;
+    }
+
+    .canion {
+      width: 20vw;
+      height: 500px;
+      background-image: url("./assets/canion.png");
+      background-position: center;
+      background-size: cover;
+      margin-right: 15px;
+    }
+
+    .jumping {
+      width: 20vw;
+      height: 500px;
+      background-image: url("./assets/jumping.jpeg");
+      background-position: center;
+      background-size: cover;
+      margin-right: 15px;
+    }
+
+    .torito-mecanico:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.556);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+    }
+
+    .camera:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.556);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+    }
+
+    .canion:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.556);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+    }
+
+    .jumping:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.556);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+    }
+
+    @media (max-width:800px) {
+      .ims {
+        display: none;
+      }
+
+      .imsM {
+        display: block;
+        margin-left: 25%;
+      }
+    }
+
+    @media (max-width:400px) {
+      .ims {
+        display: none;
+      }
+
+      .imsM {
+        display: block;
+        margin-left: 0%;
+      }
+    }
+
+    @media (max-width: 990px) {
+      .text-section {
+        margin-top: 120%;
+        margin-left: 1%;
+      }
+
+
+
+      .toritoCom {
+        width: 275px;
+        margin-top: -20px
+      }
+
+      button.navbar-toggler {
+        margin-top: -45px;
+      }
+
+      .nav-item {
+        width: 50px;
+        margin-left: 42%
+      }
+
+      .menu {
+        margin-top: 220% !important;
+      }
+
+    }
+
+    * {
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+    }
+
+    .hamburguer {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 80%;
+      right: 0;
+      margin: auto;
+      width: 50px;
+      height: 50px;
+    }
+
+    .line {
+      background: #2dacd1;
+      width: 50px;
+      height: 6px;
+      margin-bottom: 12px;
+    }
+
+    .top {
+      -ms-transform: rotate(-45deg);
+      /* IE 9 */
+      -webkit-transform: rotate(-45deg);
+      /* Chrome, Safari, Opera */
+      transform: rotate(-45deg);
+      top: 18px;
+      position: relative;
+    }
+
+    .center {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s 0, 3s, opacity 2s linear;
+    }
+
+    .bottom {
+      -ms-transform: rotate(140deg);
+      /* IE 9 */
+      -webkit-transform: rotate(140deg);
+      /* Chrome, Safari, Opera */
+      transform: rotate(45deg);
+      top: -18px;
+      position: relative;
+    }
+
+    .menu {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      z-index: 999999999;
+      background-color: #212b5cd0;
+      margin-top: 66%;
+      position: fixed;
+    }
+
+    .menuOpen {
+      display: block;
+    }
+
+    .blockY {
+      overflow-y: hidden;
+    }
+
+    .menu-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      justify-content: space-evenly;
+      justify-items: center;
+      height: 70%;
+      font-size: 45px;
+    }
+
+    .sectionIN {
+      width: 100%;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      align-items: center;
+
+      p {
+        font-size: 22px;
+        color: #dba0c1;
+      }
+    }
+  </style>
+  <style>
+    body {
+      background-color: #232b59;
+    }
+
+    .slidd {
+      z-index: 1;
+      background-color: #000000cf !important;
+      position: absolute;
+    }
+
+    @font-face {
+      font-family: 'comic';
+      src: url('./assets/fonts/HVD_Comic_Serif_Pro.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .video-container {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Just styling the content of the div, the *magic* in the previous rules */
+    .video-container .caption {
+      z-index: 1;
+      position: relative;
+      text-align: center;
+      background-color: #00000087;
+      padding: 10px;
+      height: 100%;
+    }
+
+    .prox {
+      color: #00becd;
+      font-family: 'comic';
+      text-shadow: 3px 3px 2px black;
+    }
+
+    .imgfit {
+      width: 50%;
+    }
+
+    @media (max-width:500px) {
+      .imgfit {
+        width: 100%;
+      }
+    }
+  </style>
+
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js -->
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script>
+
+    function toInicio() {
+      console.log("INICIO");
+      closeMenu();
+      window.scrollTo(0, -1)
+    }
+
+    function toNosotros() {
+      console.log("NOSOTROS");
+      closeMenu();
+      let y = document.querySelector('#nosotros').getBoundingClientRect().top;
+      //const element = document.getElementById("nosotros");
+      //element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+      window.scrollTo(0, y - 100)
+    }
+
+    function toServicios() {
+      console.log("NOSOTROS");
+      closeMenu();
+      let y = document.querySelector('#servicios').getBoundingClientRect().top;
+      //const element = document.getElementById("nosotros");
+      //element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+      window.scrollTo(0, y - 100)
+    }
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary"
+    style="height: 110px; background-color: #6e38be !important; box-shadow: 0px 10px 20px -7px rgba(0,0,0,0.75);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img class="d-none d-sm-none d-md-block toritoCom"
+          src="./assets/toritocompleto.png">
+        <img class="d-none d-sm-block d-md-none" src="./assets/toritocabeza.png" alt=""
+          style="width: 85px; margin-top: 3px;"></a>
+
+    </div>
+    <div class="hamburguer">
+      <div class="line" id="top"></div>
+      <div class="line" id="center"></div>
+      <div class="line" id="bottom"></div>
+    </div>
+    <!-- menu -->
+    <div id="menu" class="menu">
+      <div class="menu-box">
+        <h1 class="text-title " onclick="toInicio()">INICIO</h1>
+        <h1 class="text-title " onclick="toNosotros()">NOSOTROS</h1>
+        <h1 class="text-title " onclick="toServicios()">SERVICIOS</h1>
+        <h1 class="text-title ">CONTACTO</h1>
+      </div>
+    </div>
+    <!-- menu * -->
+  </nav>
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="../assets/party.mp4" type="video/mp4" />
+    </video>
+    <!--<div class="caption">
+        <img class="imgfit" src="../assets/toritocompleto.png" alt="">
+        <h1 class="prox">PROXIMAMENTE</h1>
+        <h3 style="color:white"> CONTACTO </h3>
+       <a href="https://www.facebook.com/profile.php?id=100088666271939&locale=es_LA" target="_blank" rel="noopener noreferrer"> <img src="assets/face.png" width="5%"></a>
+       <a href="https://wa.me+5212224479066 " target="_blank" rel="noopener noreferrer"> <img src="../assets/whats.png" alt="" width="5%"></a>
+
+    </div>-->
+    <div class="w-full h-screen flex  justify-center slidd">
+      <div class="max-w-[1000px]">
+        <div x-data="{ activeSlide: 1, slideCount: 3 }" class="overflow-hidden relative">
+          <!-- Slider -->
+          <!-- You can remove x-init if you dont want to autoplay -->
+          <div class="whitespace-nowrap transition-transform duration-500 ease-in-out"
+            :style="'transform: translateX(-' + (activeSlide - 1) * 100.5 + '%)'"
+            x-init="setInterval(() => { activeSlide = activeSlide < slideCount ? activeSlide + 1 : 1 }, 500000)">
+            <!-- Item 1 -->
+            <div class="inline-block w-full">
+              <div class="text-section">
+                <h1 class="text-title text-4xl">TORITO MECANICO</h1>
+                <h2 class="text-subtitle md:text-l sm:text-l lg:text-2xl">DIVERTIDO Y SEGURO PARA TU FIESTA</h2>
+                <button id="info-btn">+info</button>
+              </div>
+              <img class="ims" src="./assets/torito_azul.jpeg" alt="" />
+              <img class="imsM" src="./assets/torito_azul_mobile.jpeg" alt="" />
+            </div>
+            <!-- Item 2 -->
+            <div class="inline-block w-full">
+              <div class="text-section">
+                <h1 class="text-title text-4xl">CAÑON DE ESPUMA</h1>
+                <h2 class="text-subtitle md:text-l sm:text-l lg:text-2xl">DIVERTIDO Y SEGURO PARA TU FIESTA</h2>
+                <button id="info-btn">+info</button>
+              </div>
+              <img class="ims" src="./assets/canion_espuma.jpeg" alt="" />
+              <img class="imsM" src="./assets/canion_espuma_mobile.jpeg" alt="" />
+
+            </div>
+            <!-- Item 3 -->
+            <div class="inline-block w-full">
+              <img src="./assets/torito_azul.jpeg" alt="" />
+            </div>
+          </div>
+
+          <!-- Prev/Next Arrows -->
+          <div class="absolute inset-0 flex items-center justify-between px-2">
+            <button @click="activeSlide = activeSlide > 1 ? activeSlide - 1 : slideCount"
+              class="w-[30px] h-[30px] flex items-center bg-black/30 text-white p-2 rounded-full">
+              &#8592;
+            </button>
+            <button @click="activeSlide = activeSlide < slideCount ? activeSlide + 1 : 1"
+              class="w-[30px] h-[30px] flex items-center bg-black/30 text-white p-2 rounded-full">
+              &#8594;
+            </button>
+          </div>
+
+          <!-- Dots Navigation -->
+          <div class="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 p-4">
+            <template x-for="slideIndex in slideCount" :key="slideIndex">
+              <button @click="activeSlide = slideIndex" class="h-2 w-2 rounded-full"
+                :class="{'bg-orange-500': activeSlide === slideIndex, 'bg-white/50': activeSlide !== slideIndex}"></button>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="nosotros" class="container-fluid" style="height: 100vh; padding: 20% 5% 3% 5%;">
+    <div class="sectionIN">
+      <h1 class="text-title-nosotros">NOSOTROS</h1>
+      <div style="display: flex;
+      justify-content: space-around; margin-bottom: 50px;">
+        <img src="./assets/imgs/nosotros2.jpeg" width="30%" style="transform: rotate(10deg)">
+        <img src="./assets/imgs/nosotros1.jpeg" width="30%">
+        <img src="./assets/imgs/nosotros1.jpeg" width="30%" style="transform: rotate(-10deg)">
+      </div>
+      <p>Atracciones Torito Playense es una empresa
+        100% Quintanaroense dedicada a la animación y
+        diversión de niños y adultos.</p><br>
+      <p>Nuestra empresa surge a partir de las ideas de 2
+        socios apasionados por la diversión infantil,
+        quienes consolidan su proyecto a partir de la
+        bonita tradición mexicana del TORO MECANICO.</p><br>
+      <p>El Torito Playense se ha consolidado en nuestro
+        bello estado, como una empresa con un
+        concepto único, original y divertido para la
+        distracción de toda la familia.</p>
+    </div>
+  </div>
+  <div id="servicios" class="container-fluid" style="height: 100vh; padding: 20% 5% 3% 5%;">
+    <div class="sectionIN">
+      <h1 class="text-title-nosotros">SERVICIOS</h1>
+      <div style="display:flex">
+        <div style="display: flex;
+      justify-content: space-around; margin-bottom: 50px;">
+          <div class="jumping">
+            <div class="overlay">
+              <img src="./assets/icons/icono2_w.png" alt="" srcset="">
+              <h1 class="text-title">JUMPING INFLABLES</h1>
+              <button id="info-btn">+info</button>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex;
+      justify-content: space-around; margin-bottom: 50px;">
+          <div class="torito-mecanico">
+            <div class="overlay">
+              <img src="./assets/icons/icono1_w.png" alt="" srcset="">
+              <h1 class="text-title">TORITO MECANICO</h1>
+              <p style="font-size: 18px; color: white;"> Adultos y niños </p>
+              <button id="info-btn">+info</button>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex;
+      justify-content: space-around; margin-bottom: 50px;">
+          <div class="camera">
+            <div class="overlay">
+              <img src="./assets/icons/icono3_w.png" alt="" srcset="">
+              <h1 class="text-title">Camara 360</h1>
+              <button id="info-btn">+info</button>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex;
+      justify-content: space-around; margin-bottom: 50px;">
+          <div class="canion">
+            <div class="overlay">
+              <img src="./assets/icons/icono5_w.png" alt="" srcset="">
+              <h1 class="text-title">CAÑON DE ESPUMA</h1>
+              <button id="info-btn">+info</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+
+  <script>
+
+    var hamburguer = 0;
+
+    function closeMenu() {
+      hamburguer -= 1;
+      $("#top").removeClass('top');
+      $("#center").removeClass('center');
+      $("#bottom").removeClass('bottom');
+      $("#menu").removeClass('menuOpen');
+      $("body").removeClass('blockY')
+    }
+
+    $('.hamburguer').click(function () {
+
+      if (hamburguer == 0) {
+        hamburguer += 1;
+        $("#top").addClass('top');
+        $("#center").addClass('center');
+        $("#bottom").addClass('bottom');
+        $("#menu").addClass('menuOpen');
+        $("body").addClass('blockY')
+
+      } else {
+        hamburguer -= 1;
+        $("#top").removeClass('top');
+        $("#center").removeClass('center');
+        $("#bottom").removeClass('bottom');
+        $("#menu").removeClass('menuOpen');
+        $("body").removeClass('blockY')
+      }
+    }); 
+  </script>
+</body>
+
+
+</html>
