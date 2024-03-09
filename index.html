@@ -46,6 +46,7 @@
       font-size: 26px;
       color: #dba0c1;
       text-shadow: 3px 3px 2px black;
+      width: 80%;
     }
 
     #info-btn {
@@ -135,7 +136,7 @@
     .torito-mecanico:hover .overlay {
 
       display: block;
-      background-color: rgba(0, 0, 0, 0.556);
+      background-color: rgba(0, 0, 0, 0.456);
       font-size: 20px;
       text-align: center;
       width: 100%;
@@ -147,7 +148,7 @@
     .camera:hover .overlay {
 
       display: block;
-      background-color: rgba(0, 0, 0, 0.556);
+      background-color: rgba(0, 0, 0, 0.456);
       font-size: 20px;
       text-align: center;
       width: 100%;
@@ -159,7 +160,7 @@
     .canion:hover .overlay {
 
       display: block;
-      background-color: rgba(0, 0, 0, 0.556);
+      background-color: rgba(0, 0, 0, 0.456);
       font-size: 20px;
       text-align: center;
       width: 100%;
@@ -171,13 +172,18 @@
     .jumping:hover .overlay {
 
       display: block;
-      background-color: rgba(0, 0, 0, 0.556);
+      background-color: rgba(0, 0, 0, 0.456);
       font-size: 20px;
       text-align: center;
       width: 100%;
       height: 100%;
       padding: 50px 0px;
       border-radius: 10px;
+
+    }
+
+    .cabecita {
+      display: none;
     }
 
     @media (max-width:800px) {
@@ -189,6 +195,10 @@
         display: block;
         margin-left: 25%;
       }
+
+      .cabecita {
+      display: none;
+    }
     }
 
     @media (max-width:400px) {
@@ -200,6 +210,20 @@
         display: block;
         margin-left: 0%;
       }
+
+      .section {
+        padding: 10% 5%;
+      }
+
+      .sectionIN {
+
+        display: none;
+
+      }
+
+      .cabecita {
+      display: block;
+    }
     }
 
     @media (max-width: 990px) {
@@ -207,6 +231,10 @@
         margin-top: 120%;
         margin-left: 1%;
       }
+
+      .cabecita {
+      display: none;
+    }
 
 
 
@@ -311,9 +339,13 @@
       font-size: 45px;
     }
 
+    .section {
+      height: auto;
+      padding: 10% 5%;
+    }
+
     .sectionIN {
       width: 100%;
-      height: 40%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -374,53 +406,107 @@
       width: 50%;
     }
 
+    #serviciosF {
+      display: flex;
+
+    }
+    .btndiv {
+      width: 250px;
+    margin-right: 20%;
+}
+
     @media (max-width:500px) {
       .imgfit {
         width: 100%;
+      }
+
+      .btndiv {
+        width: 35%;
+    margin-right: 20%;
+    .btn {
+      padding: 10px;
+    }
+}
+
+.cabecita {
+      display: block;
+    }
+      }
+
+      #serviciosF {
+        display: flex;
+        flex-direction: column;
+
+        .jumping {
+          width: 80vw;
+          height: 25vh;
+        }
+
+        .jumping .overlay {
+
+          display: block;
+          background-color: rgba(0, 0, 0, 0.456);
+          font-size: 20px;
+          text-align: center;
+          width: 100%;
+          height: 25vh;
+          border-radius: 10px;
+
+          img {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 30%;
+          }
+
+        }
       }
     }
   </style>
   <style>
     .btn {
-  padding: 20px 60px;
-  border: none;
-  outline: none;
-  position: relative;
-  z-index: 1;
-  border-radius: 5px;
-  background: linear-gradient(to right, #00FFA3, #DC1FFF);
-  cursor: pointer;
-}
-.btn::before {
-  content: "";
-  position: absolute;
-  left: 4px;
-  right: 4px;
-  top: 4px;
-  bottom: 4px;
-  border-radius: 4px;
-  background-color: white;
-  z-index: -1;
-  transition: 200ms
-}
-.btn::after {
-  content: attr(data);
-  font-size: 20px;
-  background: linear-gradient(to left, #00FFA3, #DC1FFF);
-  -webkit-background-clip: text;
-  color: transparent;
-  transition: 200ms
-}
-.btn:hover::before {
-  opacity: 50%;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-}
-.btn:hover::after{
-  color: white;
-}
+      padding: 20px 60px;
+      border: none;
+      outline: none;
+      position: relative;
+      z-index: 1;
+      border-radius: 5px;
+      background: linear-gradient(to right, #00FFA3, #DC1FFF);
+      cursor: pointer;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 4px;
+      bottom: 4px;
+      border-radius: 4px;
+      background-color: white;
+      z-index: -1;
+      transition: 200ms
+    }
+
+    .btn::after {
+      content: attr(data);
+      font-size: 20px;
+      background: linear-gradient(to left, #00FFA3, #DC1FFF);
+      -webkit-background-clip: text;
+      color: transparent;
+      transition: 200ms
+    }
+
+    .btn:hover::before {
+      opacity: 50%;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+    }
+
+    .btn:hover::after {
+      color: white;
+    }
   </style>
 
 
@@ -460,14 +546,14 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><img class="d-none d-sm-none d-md-block toritoCom"
           src="./assets/toritocompleto.png">
-        <img class="d-none d-sm-block d-md-none" src="./assets/toritocabeza.png" alt=""
+        <img class="cabecita" src="./assets/toritocabeza.png" alt=""
           style="width: 85px; margin-top: 3px;"></a>
-          <div style="width: 250px; margin-right: 200px;">
-            <button class="btn" data="Book Now"></button>
-          </div>
-          
+      <div class="btndiv">
+        <button class="btn" data="Book Now"></button>
+      </div>
+
     </div>
-   
+
     <div class="hamburguer">
       <div class="line" id="top"></div>
       <div class="line" id="center"></div>
@@ -484,6 +570,7 @@
     </div>
     <!-- menu * -->
   </nav>
+
   <div class="video-container">
     <video autoplay muted loop>
       <source src="../assets/party.mp4" type="video/mp4" />
@@ -556,14 +643,15 @@
   </div>
 
 
-  <div id="nosotros" class="container-fluid" style="height: 100vh; padding: 20% 5% 3% 5%;">
+
+  <div id="nosotros" class="section">
     <div class="sectionIN">
       <h1 class="text-title-nosotros">NOSOTROS</h1>
       <div id="nosotrosF" style="display: flex;
       justify-content: space-around; margin-bottom: 50px;">
-        <img src="./assets/imgs/nosotros2.jpeg" width="30%" style="transform: rotate(10deg)">
-        <img src="./assets/imgs/nosotros1.jpeg" width="30%">
-        <img src="./assets/imgs/nosotros1.jpeg" width="30%" style="transform: rotate(-10deg)">
+        <img src="./assets/imgs/nosotros2.jpeg" width="30%" style="transform: rotate(10deg); border-radius: 20px;">
+        <img src="./assets/imgs/nosotros1.jpeg" width="30%" style="border-radius: 20px">
+        <img src="./assets/imgs/nosotros1.jpeg" width="30%" style="transform: rotate(-10deg); border-radius: 20px">
       </div>
       <p class="text-description">Atracciones Torito Playense es una empresa
         100% Quintanaroense dedicada a la animación y
@@ -577,12 +665,12 @@
         concepto único, original y divertido para la
         distracción de toda la familia.</p>
     </div>
-    
+
   </div>
-  <div id="servicios" class="container-fluid" style="height: 100vh; padding: 20% 5% 3% 5%;">
+  <div id="servicios" class="section">
     <div class="sectionIN">
       <h1 class="text-title-nosotros">SERVICIOS</h1>
-      <div style="display:flex" id="serviciosF">
+      <div id="serviciosF">
         <div style="display: flex;
       justify-content: space-around; margin-bottom: 50px;">
           <div class="jumping">
@@ -627,7 +715,7 @@
       </div>
 
     </div>
-   
+
 
   </div>
 
