@@ -668,6 +668,14 @@
       //element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
       document.getElementById('serviciosF').scrollIntoView();
     }
+
+    function toContacto() {
+      console.log("toContacto");
+      closeMenu();
+      //const element = document.getElementById("nosotros");
+      //element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+      document.getElementById('contactoF').scrollIntoView();
+    }
   </script>
 </head>
 
@@ -695,7 +703,7 @@
         <h1 class="text-title " onclick="toInicio()">INICIO</h1>
         <h1 class="text-title " onclick="toNosotros()">NOSOTROS</h1>
         <h1 class="text-title " onclick="toServicios()">SERVICIOS</h1>
-        <h1 class="text-title ">CONTACTO</h1>
+        <h1 class="text-title " onclick="toContacto()">CONTACTO</h1>
       </div>
     </div>
     <!-- menu * -->
@@ -854,7 +862,7 @@
         <h1 class="text-title-nosotros" style="font-size: 35px;"> No esperes más y agenda tu fiesta</h1>
         <h1 class="text-title-nosotros" style="font-size: 35px; margin-top: -20px;"> contactanos para tener más información sobre costos</h1>
         <div style="display: flex; justify-content: center; width: 80%; margin: auto;">
-          <div style="display: flex; align-items: center; justify-content: center; width: 60%; margin: auto;">
+          <div id="contactoF" style="display: flex; align-items: center; justify-content: center; width: 60%; margin: auto;">
             <img src="./assets/icons/whats.png" width="15%" alt="" srcset="">
             <div style="width: 60%">
               <h1 class="text-contact"  style="margin: auto;" > 984 239 99 42 </h1>
