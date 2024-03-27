@@ -3,7 +3,7 @@
 var slidesShow = 4;       // set number of displayed slides
 var buttons = true;       // show/hide buttons (true or false)
 var autoScroll = true;   // turn on/off slides auto-scroll (true or false) 
-var scrollSpeed = 3000;   // set slide scrolling speed
+var scrollSpeed = 4000;   // set slide scrolling speed
 
 // ---------------------------------------------
 
