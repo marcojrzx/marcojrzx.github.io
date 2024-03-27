@@ -131,6 +131,16 @@
       border-radius: 10px;
     }
 
+    .burbujas {
+      width: 25vw;
+      height: 500px;
+      background-image: url("./assets/burbujas.webp");
+      background-position: center;
+      background-size: cover;
+      margin-right: 15px;
+      border-radius: 10px;
+    }
+
     .jumping {
       width: 25vw;
       height: 500px;
@@ -189,6 +199,21 @@
       border-radius: 10px;
 
     }
+
+    .burbujas:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.456);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+      border-radius: 10px;
+
+    }
+
+
 
     .jumping:hover {
       box-shadow: 10px 10px 10px rgba(176, 176, 176, 0.66);
@@ -922,7 +947,7 @@
       </div>-->
 
 
-    
+
 
       <div class="infinite-carousel">
         <div id="carousel" class="carousel-wrapper">
@@ -942,45 +967,45 @@
             <div class="carousel-block">
               <div style="display: flex;
       justify-content: space-around; margin-bottom: 50px;">
-          <div class="torito-mecanico">
-            <div class="overlay">
-              <img src="./assets/icons/icono1_w.png" alt="" srcset="">
-              <h1 class="text-title">TORITO MECANICO</h1>
-              <p style="font-size: 18px; color: white;"> Adultos y niños </p>
-              <button id="info-btn">+info</button>
-            </div>
-          </div>
-        </div>
+                <div class="torito-mecanico">
+                  <div class="overlay">
+                    <img src="./assets/icons/icono1_w.png" alt="" srcset="">
+                    <h1 class="text-title">TORITO MECANICO</h1>
+                    <p style="font-size: 18px; color: white;"> Adultos y niños </p>
+                    <button id="info-btn">+info</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="carousel-block">
               <div style="display: flex;
       justify-content: space-around; margin-bottom: 50px;">
-          <div class="jumping">
-            <div class="overlay">
-              <img src="./assets/icons/icono2_w.png" alt="" srcset="">
-              <h1 class="text-title">JUMPING INFLABLES</h1>
-              <button id="info-btn">+info</button>
+                <div class="jumping">
+                  <div class="overlay">
+                    <img src="./assets/icons/icono2_w.png" alt="" srcset="">
+                    <h1 class="text-title">JUMPING INFLABLES</h1>
+                    <button id="info-btn">+info</button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-            </div>
-            
+
             <div class="carousel-block">
               <div style="display: flex;
       justify-content: space-around; margin-bottom: 50px; ">
-          <div class="camera">
-            <div class="overlay">
-              <img src="./assets/icons/icono3_w.png" alt="" srcset="">
-              <h1 class="text-title">Camara 360</h1>
-              <button id="info-btn">+info</button>
-            </div>
-          </div>
-        </div>
+                <div class="camera">
+                  <div class="overlay">
+                    <img src="./assets/icons/icono3_w.png" alt="" srcset="">
+                    <h1 class="text-title">Camara 360</h1>
+                    <button id="info-btn">+info</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="carousel-block">
               <div style="display: flex;
       justify-content: space-around; margin-bottom: 50px;">
-                <div class="canion">
+                <div class="burbujas">
                   <div class="overlay">
                     <img src="./assets/icons/icono5_w.png" alt="" srcset="">
                     <h1 class="text-title">MAQUINA DE BURBUJAS</h1>
@@ -989,7 +1014,7 @@
                 </div>
               </div>
             </div>
-  
+
 
 
           </div>
@@ -1061,9 +1086,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="js/carro.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script src="js/carro.js"></script>
 
   <script>
 
@@ -1121,7 +1147,7 @@
 
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-  
+
   <script>
     $('.slider-container').slick({
       slidesToShow: 3,
