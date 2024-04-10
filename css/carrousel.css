@@ -36,18 +36,18 @@
   
   .infinite-carousel {
     position: relative;
-    width: 1200px;
+    width: 100vw;
     height: 70vh;
     margin: auto;
     overflow: hidden;
-    margin: 10px auto;
+    margin: 10px 0px;
     display: block;
     justify-content: center;
     border-radius: 5px;
   }
   
   .carousel-block {
-    width: 300px;
+    width: 350px !important;
     display: inline-block;
     border-radius: 5px;
     height: 100%;
