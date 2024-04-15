@@ -1208,37 +1208,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
   <script src="js/carro.js"></script>
-  <script>
-    function papelChange(numero) {
-      switch (numero) {
-        case 1:
-          let p = document.getElementsByTagName("body")[0];
-          p.setAttribute("style", "background-image: url(assets/papeltapiz01.jpg)");
-          break;
-        case 2:
-          let d = document.getElementsByTagName("body")[0];
-          d.setAttribute("style", "background-image: url(assets/papeltapiz02.jpg)");
-          break;
-        case 3:
-          let e = document.getElementsByTagName("body")[0];
-          e.setAttribute("style", "background-image: url(assets/papeltapiz03.jpg)");
-          break;
-        case 4:
-          let f = document.getElementsByTagName("body")[0];
-          f.setAttribute("style", "background-image: url(assets/papeltapiz04.jpg)");
-          break;
-        case 5:
-          let c = document.getElementsByTagName("body")[0];
-          c.setAttribute("style", "background-image: url(assets/papeltapiz05.jpg)");
-          break;
-
-        default:
-
-          break;
-          closeMenu();
-      }
-    }
-  </script>
+  
   <script>
 
     var hamburguer = 0;
@@ -1271,6 +1241,37 @@
         $("body").removeClass('blockY')
       }
     }); 
+  </script>
+  <script>
+    function papelChange(numero) {
+      switch (numero) {
+        case 1:
+          let p = document.getElementsByTagName("body")[0];
+          p.setAttribute("style", "background-image: url(assets/papeltapiz01.jpg)");
+          break;
+        case 2:
+          let d = document.getElementsByTagName("body")[0];
+          d.setAttribute("style", "background-image: url(assets/papeltapiz02.jpg)");
+          break;
+        case 3:
+          let e = document.getElementsByTagName("body")[0];
+          e.setAttribute("style", "background-image: url(assets/papeltapiz03.jpg)");
+          break;
+        case 4:
+          let f = document.getElementsByTagName("body")[0];
+          f.setAttribute("style", "background-image: url(assets/papeltapiz04.jpg)");
+          break;
+        case 5:
+          let c = document.getElementsByTagName("body")[0];
+          c.setAttribute("style", "background-image: url(assets/papeltapiz05.jpg)");
+          break;
+
+        default:
+
+          break;
+          closeMenu();
+      }
+    }
   </script>
   <script>
     let currentColor = "";
