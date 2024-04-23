@@ -43,9 +43,10 @@
     }
 
     .text-description {
-      font-size: 26px;
-      color: #dba0c1;
-      text-shadow: 3px 3px 2px black;
+      font-family: 'comic';
+      font-size: 30px;
+      color: #000000;
+      text-shadow: 3px 3px 2px rgb(201, 201, 201);
       width: 80%;
     }
 
@@ -444,10 +445,10 @@
   </style>
   <style>
     body {
-      background-image: url("assets/tapiz2.png");
+      background-image: url(assets/papeltapiz01.jpg);
       background-size: contain;
     }
-
+    
     .slidd {
       z-index: 1;
       background-color: rgba(0, 0, 0, 0.205) !important;
@@ -499,8 +500,11 @@
     }
 
     .imgfit {
-      width: 50%;
+      margin: 15% 35% 5% 35%;
+      width: 25%;
     }
+
+    
 
     #serviciosF {
       display: flex;
@@ -831,6 +835,13 @@
       }
     }
   </style>
+  <style>
+    .modal-target-video {
+      font-family: comic;
+      color: #fff;
+      font-size: 30px;
+    }
+  </style>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
@@ -883,8 +894,9 @@
       <a class="navbar-brand" href="#"><img class="d-none d-sm-none d-md-block toritoCom"
           src="./assets/toritocompleto.png">
         <img class="cabecita" src="./assets/toritocabeza.png" alt="" style="width: 85px; margin-top: 3px;"></a>
-      <div class="btndiv">
-        <button class="btn" data="Book Now"></button>
+        <h1 style="font-family: comic; color:#00becd">Cancún / Playa del Carmen</h1>
+        <div class="btndiv">
+        <button class="btn" data="Reserva Ahora"></button>
       </div>
 
     </div>
@@ -908,7 +920,7 @@
 
   <div class="video-container">
     <video autoplay muted loop>
-      <source src="../assets/party.mp4" type="video/mp4" />
+      <source src="../assets/toto.mp4" type="video/mp4" />
     </video>
     <!--<div class="caption">
         <img class="imgfit" src="../assets/toritocompleto.png" alt="">
@@ -919,7 +931,7 @@
 
     </div>-->
     <div class="caption">
-      <img class="imgfit" style="margin: auto;" src="../assets/toritocompleto.png" alt="">
+      <img class="imgfit"  src="../assets/toritocompleto.png" alt="" onmouseenter="changeBack()" onmouseleave="changeBackR()">
       <h1 class="prox">DIVERSION SEGURA PARA TODA LA FAMILIA</h1>
       <section id="section03" class="demo">
         <a href="#section04"><span></span></a>
@@ -943,6 +955,8 @@
         <img class="modal-target" src="./assets/imgs/nosotros3.jpeg" width="30%"
           style="transform: rotate(-10deg); border-radius: 20px">
       </div>
+
+      <h2 class="modal-target-video" > VER VIDEO </h2>
       <p class="text-description">Atracciones Torito Playense es una empresa
         100% Quintanaroense dedicada a la animación y
         diversión de niños y adultos.</p><br>
@@ -1136,6 +1150,7 @@
   <div id="modal" class="modal">
     <span id="modal-close" class="modal-close">&times;</span>
     <img id="modal-content" class="modal-content">
+    <video id="modal-video" src="assets/toto.mp4" type="video/mp4" autoplay controls muted></video>
     <div id="modal-caption" class="modal-caption"></div>
   </div>
 
@@ -1199,6 +1214,14 @@
         modalImg.src = img.src;
         captionText.innerHTML = img.alt;
       }
+      if (e.target.className.indexOf('modal-target-video') !== -1) {
+        var img = e.target;
+        var modalImg = document.getElementById("modal-content");
+        var captionText = document.getElementById("modal-caption");
+        modal.style.display = "block";
+        modalImg.src = "";
+      }
+      
     });
 
   </script>
@@ -1213,6 +1236,17 @@
       prevArrow: '<button class="slick-prev">Previous</button>',
       nextArrow: '<button class="slick-next">Next</button>',
     });
+  </script>
+  <script>
+    function changeBack() {
+      let p = document.getElementsByClassName("caption")[0];
+      p.setAttribute("style","opacity: 50%;");
+    }
+
+    function changeBackR() {
+      let p = document.getElementsByClassName("caption")[0];
+      p.setAttribute("style","opacity: 100%;");
+    }
   </script>
 </body>
 
