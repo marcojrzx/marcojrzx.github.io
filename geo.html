@@ -24,7 +24,7 @@
     const watchID = navigator.geolocation.watchPosition((position) => {
         console.log(" >>>> position.coords.latitude >> ",position.coords.latitude);
         console.log(" >>>> position.coords.longitude >> ",position.coords.longitude);
-         if(saveData) {
+         if(saveData && position.coords.accuracy < 16) {
             arregloAux.push(position.coords.latitude);
             arregloAux.push(position.coords.longitude);
             document.getElementById('teeext').value = JSON.stringify(arregloAux); 
