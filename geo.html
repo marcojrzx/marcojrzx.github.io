@@ -28,7 +28,7 @@
             arregloAux.push(position.coords.latitude);
             arregloAux.push(position.coords.longitude);
             document.getElementById('teeext').value = JSON.stringify(arregloAux); 
-            document.getElementById('met').value = position.coords.accuracy;; 
+            document.getElementById('met').innerHTML = "Metros: "+position.coords.accuracy+" <<< "; 
             
          } else {
             arregloAux.push("STOP");
