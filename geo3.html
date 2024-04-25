@@ -147,6 +147,7 @@
         saveData = false;
     }
     const watchID = navigator.geolocation.watchPosition((position) => {
+        document.getElementById('mtr').innerHTML = "Metros: "+position.coords.accuracy+" <<< "; 
         console.log(" >>>> position.coords.latitude >> ",position.coords.latitude);
         console.log(" >>>> position.coords.longitude >> ",position.coords.longitude);
          if(saveData && position.coords.accuracy < 6) {
