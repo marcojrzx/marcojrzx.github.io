@@ -30,11 +30,10 @@
     }
 
     .text-title-nosotros {
-      color: #00becd;
+      color: #2eefff;
       font-family: 'comic';
       text-shadow: 3px 3px 2px black;
       font-size: 26px;
-      margin-bottom: 35px;
     }
 
     .text-subtitle {
@@ -46,8 +45,8 @@
       font-family: 'comic';
       font-size: 30px;
       color: #000000;
-      text-shadow: 3px 3px 2px rgb(201, 201, 201);
-      width: 80%;
+      text-shadow: 3px 3px 2px rgb(238 238 238);
+      width: 100%;
     }
 
     .text-contact {
@@ -224,6 +223,14 @@
       display: none;
     }
 
+    .ubica {
+     font-family: comic; 
+     color: #2eefff; 
+     width: 23%;
+     margin-right: 15%;
+     font-size: 25px;
+    }
+
     @media (max-width:800px) {
       .ims {
         display: none;
@@ -276,7 +283,7 @@
       }
 
       .section {
-        padding: 10% 5%;
+        padding: 5% 5%;
       }
 
       .sectionIN {
@@ -431,7 +438,7 @@
 
     .section {
       height: auto;
-      padding: 10% 5%;
+      padding: 5% 5%;
     }
 
     .sectionIN {
@@ -486,8 +493,8 @@
     .video-container .caption {
       z-index: 1;
       position: relative;
-      text-align: center;
-      background-color: #00000087;
+      text-align: right;
+      background-color: #00000033;
       padding: 10px;
       height: 100%;
     }
@@ -496,11 +503,11 @@
       color: #ffffff;
       font-family: 'comic';
       text-shadow: 3px 3px 2px black;
-      font-size: 35px;
+      font-size: 20px;
     }
 
     .imgfit {
-      margin: 15% 35% 5% 35%;
+      margin: 20% 35% 2% 70%;
       width: 25%;
     }
 
@@ -569,6 +576,8 @@
         margin-left: 30px;
       }
     }
+
+    
   </style>
   <style>
     .btn {
@@ -838,8 +847,9 @@
   <style>
     .modal-target-video {
       font-family: comic;
-      color: #fff;
-      font-size: 30px;
+      color: #2eefff;
+      font-size: 37px;
+      text-shadow: 3px 3px 2px black;
     }
   </style>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
@@ -894,9 +904,11 @@
       <a class="navbar-brand" href="#"><img class="d-none d-sm-none d-md-block toritoCom"
           src="./assets/toritocompleto.png">
         <img class="cabecita" src="./assets/toritocabeza.png" alt="" style="width: 85px; margin-top: 3px;"></a>
-        <h1 style="font-family: comic; color:#00becd">Cancún / Playa del Carmen</h1>
+        <h1 class="ubica">Playa carmen <br> & Riviera Maya</h1>
         <div class="btndiv">
-        <button class="btn" data="Reserva Ahora"></button>
+          <a href="/booking.html">
+        <button class="btn" data="Reserva Ahora" ></button>
+      </a>
       </div>
 
     </div>
@@ -920,7 +932,7 @@
 
   <div class="video-container">
     <video autoplay muted loop>
-      <source src="../assets/toto.mp4" type="video/mp4" />
+      <source src="/assets/torito_inf.mp4" type="video/mp4" />
     </video>
     <!--<div class="caption">
         <img class="imgfit" src="../assets/toritocompleto.png" alt="">
@@ -946,9 +958,9 @@
 
   <div id="nosotros" class="section">
     <div class="sectionIN">
-      <h1 class="text-title-nosotros" style="font-size: 50px;">NOSOTROS</h1>
+      <h1 class="text-title-nosotros" style="font-size: 55px;">NOSOTROS</h1>
       <div id="nosotrosF" style="display: flex;
-      justify-content: space-around; margin-bottom: 50px;">
+      justify-content: space-around; margin-bottom: 50px; margin-top: 75px;">
         <img class="modal-target" src="./assets/imgs/nosotros2.jpeg" width="30%"
           style="transform: rotate(10deg); border-radius: 20px;">
         <img class="modal-target" src="./assets/imgs/nosotros1.jpeg" width="30%" style="border-radius: 20px">
@@ -956,7 +968,8 @@
           style="transform: rotate(-10deg); border-radius: 20px">
       </div>
 
-      <h2 class="modal-target-video" > VER VIDEO </h2>
+      <h2 class="modal-target-video"  > VER VIDEO </h2>
+      <div style="width: 60%; text-align: justify;">
       <p class="text-description">Atracciones Torito Playense es una empresa
         100% Quintanaroense dedicada a la animación y
         diversión de niños y adultos.</p><br>
@@ -966,60 +979,15 @@
         bello estado, como una empresa con un
         concepto único, original y divertido para la
         distracción de toda la familia.</p>
+      </div>
     </div>
 
   </div>
   <div id="servicios" class="section">
     <div class="sectionIN">
-      <h1 class="text-title-nosotros" style="font-size: 50px;">SERVICIOS</h1>
-      <!--<div id="serviciosF">
-        <div style="display: flex;
-      justify-content: space-around; margin-bottom: 50px;">
-          <div class="jumping">
-            <div class="overlay">
-              <img src="./assets/icons/icono2_w.png" alt="" srcset="">
-              <h1 class="text-title">JUMPING INFLABLES</h1>
-              <button id="info-btn">+info</button>
-            </div>
-          </div>
-        </div>
-        <div style="display: flex;
-      justify-content: space-around; margin-bottom: 50px;">
-          <div class="torito-mecanico">
-            <div class="overlay">
-              <img src="./assets/icons/icono1_w.png" alt="" srcset="">
-              <h1 class="text-title">TORITO MECANICO</h1>
-              <p style="font-size: 18px; color: white;"> Adultos y niños </p>
-              <button id="info-btn">+info</button>
-            </div>
-          </div>
-        </div>
-        <div style="display: flex;
-      justify-content: space-around; margin-bottom: 50px;">
-          <div class="camera">
-            <div class="overlay">
-              <img src="./assets/icons/icono3_w.png" alt="" srcset="">
-              <h1 class="text-title">Camara 360</h1>
-              <button id="info-btn">+info</button>
-            </div>
-          </div>
-        </div>
-        <div style="display: flex;
-      justify-content: space-around; margin-bottom: 50px;">
-          <div class="canion">
-            <div class="overlay">
-              <img src="./assets/icons/icono5_w.png" alt="" srcset="">
-              <h1 class="text-title">CAÑON DE ESPUMA</h1>
-              <button id="info-btn">+info</button>
-            </div>
-          </div>
-        </div>
-      </div>-->
-
-
-
-
-      <div class="infinite-carousel">
+      <h1 class="text-title-nosotros" style="font-size: 55px;">SERVICIOS</h1>
+     
+      <div class="infinite-carousel" style="margin-top: 55px;">
         <div id="carousel" class="carousel-wrapper">
           <div class="carousel-items">
             <div class="carousel-block">
@@ -1029,7 +997,9 @@
                   <div class="overlay">
                     <img src="./assets/icons/icono5_w.png" alt="" srcset="">
                     <h1 class="text-title">CAÑON DE ESPUMA</h1>
+                    <a href="/servicio_torito.html">
                     <button id="info-btn">+info</button>
+                  </a>
                   </div>
                 </div>
               </div>
@@ -1042,7 +1012,9 @@
                     <img src="./assets/icons/icono1_w.png" alt="" srcset="">
                     <h1 class="text-title">TORITO MECANICO</h1>
                     <p style="font-size: 18px; color: white;"> Adultos y niños </p>
-                    <button id="info-btn">+info</button>
+                    <a href="/servicio_torito.html">
+                      <button id="info-btn">+info</button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1054,7 +1026,9 @@
                   <div class="overlay">
                     <img src="./assets/icons/icono2_w.png" alt="" srcset="">
                     <h1 class="text-title">JUMPING INFLABLES</h1>
-                    <button id="info-btn">+info</button>
+                    <a href="/servicio_torito.html">
+                      <button id="info-btn">+info</button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1067,7 +1041,9 @@
                   <div class="overlay">
                     <img src="./assets/icons/icono3_w.png" alt="" srcset="">
                     <h1 class="text-title">Camara 360</h1>
-                    <button id="info-btn">+info</button>
+                    <a href="/servicio_torito.html">
+                      <button id="info-btn">+info</button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1079,7 +1055,9 @@
                   <div class="overlay">
                     <img src="./assets/icons/icono5_w.png" alt="" srcset="">
                     <h1 class="text-title">MAQUINA DE BURBUJAS</h1>
-                    <button id="info-btn">+info</button>
+                    <a href="/servicio_torito.html">
+                      <button id="info-btn">+info</button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1092,8 +1070,8 @@
       </div>
 
       <div class="nav">
-        <button id="prev" class="carousel-button-left btn">prev</button>
-        <button id="next" class="carousel-button-right btn">next</button>
+        <button id="prev" class="carousel-button-left btn" style="font-size: 22px;">&#60</button>
+        <button id="next" class="carousel-button-right btn" style="font-size: 22px;">&#62</button>
       </div>
 
 
@@ -1107,11 +1085,15 @@
     <video autoplay muted loop>
       <source src="../assets/vvv1.mp4" type="video/mp4" />
     </video>
-    <div class="w-full h-screen   justify-center contact" style="text-align: center; ">
-      <h1 class="text-title-nosotros" style="font-size: 50px; margin-top: 40px;">Contacto</h1>
-      <h1 class="text-title-nosotros" style="font-size: 35px;"> No esperes más y agenda tu fiesta</h1>
-      <h1 class="text-title-nosotros" style="font-size: 35px; margin-top: -20px;"> contactanos para tener más
+    <div class="h-screen   justify-center contact" style="text-align: center;     display: flex;
+    flex-direction: column;
+    align-items: center;">
+      <h1 class="text-title-nosotros" style="font-size: 50px; margin-top: 20px;">Contacto</h1>
+      <div style="width: 70%;">
+      <h1 class="text-title-nosotros" style="font-size: 35px;"> No esperes más y agenda tu fiesta hoy mismo!!</h1>
+      <h1 class="text-title-nosotros" style="font-size: 35px;"> Contáctanos para más información de nuestros paquetes y promociones
         información sobre costos</h1>
+      </div>
       <div style="display: flex; justify-content: center; width: 80%; margin: auto;">
         <div id="contactoF"
           style="display: flex; align-items: center; justify-content: center; width: 60%; margin: auto;">
@@ -1141,6 +1123,7 @@
         <img src="./assets/icons/visa.png" width="100px" alt="" srcset="">
         <img src="./assets/icons/master.png" width="100px" alt="" srcset="">
       </div>
+    
     </div>
   </div>
 
