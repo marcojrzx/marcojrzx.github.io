@@ -162,7 +162,7 @@
         
                     arregloAux.push(position.coords.longitude);
                     arregloAux.push(position.coords.latitude);
-                    for (let index = 0; cooordenadas < array.length; index++) {
+                    for (let index = 0; index < cooordenadas.length; index++) {
                         const element = cooordenadas[index];
                         geojson.features[0].geometry.coordinates.push(element);
                         map.getSource('LineString').setData(geojson);  
