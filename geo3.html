@@ -157,7 +157,7 @@
         document.getElementById('mtr').innerHTML = ">> "+position.coords.accuracy+" <<< "; 
         console.log(" >>>> position.coords.latitude >> ",position.coords.latitude);
         console.log(" >>>> position.coords.longitude >> ",position.coords.longitude);
-         if(saveData && position.coords.accuracy < 7) {
+         if(saveData ) {
             arregloAux.push(position.coords.longitude);
             arregloAux.push(position.coords.latitude);
             geojson.features[0].geometry.coordinates.push(arregloAux);
@@ -170,7 +170,7 @@
          }
         
             
-        },() => {console.log("error") },options);
+        });
     </script>
 
 </body>
