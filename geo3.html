@@ -162,7 +162,6 @@
             arregloAux.push(position.coords.latitude);
             geojson.features[0].geometry.coordinates.push(arregloAux);
             document.getElementById('teeext').value = JSON.stringify(arregloAux); 
-            arregloAux = [];
             map.getSource('LineString').setData(geojson);
             document.getElementById('mtr').innerHTML = "Metros: "+position.coords.accuracy+" <<< "; 
             
