@@ -1,0 +1,789 @@
+
+    @font-face {
+      font-family: 'comic';
+      src: url('../assets/fonts/HVD_Comic_Serif_Pro.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .demo {
+      margin-top: 35%;
+    }
+    .ubica {
+      display: flex;
+      font-family: comic;
+      color: #2eefff;
+      width: 31%;
+      margin-right: 0%;
+      font-size: 22px;
+      .bandera {
+        width: 20%; margin-left: 10px;
+      }
+    }
+
+    .text-section {
+      z-index: 999999;
+      position: absolute;
+      margin-top: 50%;
+
+      margin-left: 60px;
+    }
+
+    .text-title {
+      color: #2eefff;
+      font-family: 'comic';
+      text-shadow: 3px 3px 2px black;
+    }
+
+    .text-title-nosotros {
+      color: #2eefff;
+      font-family: 'comic';
+      text-shadow: 3px 3px 2px black;
+      font-size: 26px;
+      margin-bottom: 35px;
+    }
+
+    .text-subtitle {
+      color: #fff;
+      text-shadow: 3px 3px 2px black;
+    }
+    
+
+    .text-description {
+        font-family: 'comic';
+        font-size: 30px;
+        color: #000000;
+        text-shadow: 3px 3px 2px rgb(238 238 238);
+        width: 100%;
+    }
+
+    .text-contact {
+      font-size: 35px;
+      color: #dba0c1;
+      text-shadow: 3px 3px 2px black;
+      width: 80%;
+      font-weight: bold;
+    }
+
+    #info-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      ;
+      outline: none;
+      font-weight: 600;
+      border: none;
+      background-color: #fff;
+      border-width: 3px;
+      border-style: solid;
+      border-radius: 20px;
+      cursor: pointer;
+      color: #2eefff;
+      border-color: #2eefff;
+    }
+
+    #info-btn:hover {
+      color: #fff;
+      background-color: #2eefff;
+    }
+
+    .text-box {
+      line-height: 0px;
+      background-color: #ffffff1a;
+    }
+    .nosotros-section {
+      width: 60%; 
+      text-align: justify;
+    }
+
+
+    .toritoCom {
+      width: 275px;
+      margin-top: 25px;
+    }
+
+    .ims {
+      display: block;
+    }
+
+    .imsM {
+      display: none;
+    }
+
+    .overlay {
+      display: none;
+    }
+
+    .torito-mecanico {
+      width: 20vw;
+      height: 500px;
+      background-image: url("../assets/torito_azul.jpeg");
+      background-position: center;
+      margin-right: 15px;
+      border-radius: 10px;
+    }
+
+
+    .camera {
+      width: 20vw;
+      height: 500px;
+      background-image: url("../assets/camera360.jpeg");
+      background-position: 30%;
+      background-size: cover;
+      margin-right: 15px;
+      border-radius: 10px;
+    }
+
+    .canion {
+      width: 20vw;
+      height: 500px;
+      background-image: url("../assets/canion.png");
+      background-position: center;
+      background-size: cover;
+      margin-right: 15px;
+      border-radius: 10px;
+    }
+
+    .jumping {
+      width: 20vw;
+      height: 500px;
+      background-image: url("../assets/jumping.jpeg");
+      background-position: center;
+      background-size: cover;
+      margin-right: 15px;
+      border-radius: 10px;
+    }
+
+    .burbujas {
+      width: 25vw;
+      height: 500px;
+      background-image: url("../assets/burbujas.png");
+      background-position: center;
+      background-size: cover;
+      margin-right: 15px;
+      border-radius: 10px;
+    }
+
+    .burbujas:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.456);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+      border-radius: 10px;
+
+    }
+
+    .torito-mecanico:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.456);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+      border-radius: 10px;
+    }
+
+    .camera:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.456);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+      border-radius: 10px;
+    }
+
+    .canion:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.456);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+      border-radius: 10px;
+    }
+
+    .jumping:hover .overlay {
+
+      display: block;
+      background-color: rgba(0, 0, 0, 0.456);
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0px;
+      border-radius: 10px;
+
+    }
+
+    .cabecita {
+      display: none;
+    }
+
+    @media (max-width:800px) {
+      .ims {
+        display: none;
+      }
+
+      .imsM {
+        display: block;
+        margin-left: 25%;
+      }
+
+      .cabecita {
+        display: none;
+      }
+    }
+
+    @media (max-width:400px) {
+      .ims {
+        display: none;
+      }
+
+      .imsM {
+        display: block;
+        margin-left: 0%;
+      }
+
+      .section {
+        padding: 10% 5%;
+      }
+
+      .sectionIN {
+
+        display: none;
+
+      }
+
+      .cabecita {
+        display: block;
+      }
+
+      .btndiv {
+        width: 24%;
+        margin-right: 6%;
+
+        .btn {
+          padding: 10px;
+        }
+      }
+
+
+      .cabecita {
+        display: block;
+      }
+
+      .ubica {
+        width: 29%;
+        margin-right: 0%;
+        font-size: 15px;
+      }
+
+      .container-fluid {
+        justify-content: unset !important;
+      }
+    }
+
+    @media (max-width: 990px) {
+      .text-section {
+        margin-top: 120%;
+        margin-left: 1%;
+      }
+
+      .cabecita {
+        display: none;
+      }
+
+
+
+      .toritoCom {
+        width: 275px;
+        margin-top: -20px
+      }
+
+      button.navbar-toggler {
+        margin-top: -45px;
+      }
+
+      .nav-item {
+        width: 50px;
+        margin-left: 42%
+      }
+
+      .menu {
+        margin-top: 220% !important;
+      }
+
+    }
+
+    * {
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+    }
+
+    .hamburguer {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 80%;
+      right: 0;
+      margin: auto;
+      width: 50px;
+      height: 50px;
+    }
+
+    .line {
+      background: #2dacd1;
+      width: 50px;
+      height: 6px;
+      margin-bottom: 12px;
+    }
+
+    .top {
+      -ms-transform: rotate(-45deg);
+      /* IE 9 */
+      -webkit-transform: rotate(-45deg);
+      /* Chrome, Safari, Opera */
+      transform: rotate(-45deg);
+      top: 18px;
+      position: relative;
+    }
+
+    .center {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s 0, 3s, opacity 2s linear;
+    }
+
+    .bottom {
+      -ms-transform: rotate(140deg);
+      /* IE 9 */
+      -webkit-transform: rotate(140deg);
+      /* Chrome, Safari, Opera */
+      transform: rotate(45deg);
+      top: -18px;
+      position: relative;
+    }
+
+    .menu {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      z-index: 999999999;
+      background-color: #212b5cd0;
+      margin-top: 66%;
+      position: fixed;
+    }
+
+    .menuOpen {
+      display: block;
+    }
+
+    .blockY {
+      overflow-y: hidden;
+    }
+
+    .menu-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      justify-content: space-evenly;
+      justify-items: center;
+      height: 70%;
+      font-size: 45px;
+    }
+
+    .section {
+      height: auto;
+      padding: 10% 5%;
+    }
+
+    .sectionIN {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      align-items: center;
+    }
+
+    body {
+      background-image: url("../assets/papeltapiz01.jpg");
+      background-size: contain;
+    }
+
+    .slidd {
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.205) !important;
+      position: absolute;
+    }
+
+    .contact {
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.505) !important;
+      position: absolute;
+    }
+
+   
+
+    .video-container {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Just styling the content of the div, the *magic* in the previous rules */
+    .video-container .caption {
+      z-index: 1;
+      position: relative;
+      text-align: center;
+      background-color: #0000002d;
+      padding: 10px;
+      height: 100%;
+    }
+
+    .prox {
+      color: #ffffff;
+      font-family: 'comic';
+      text-shadow: 3px 3px 2px black;
+      font-size: 35px;
+    }
+
+    .imgfit {
+        margin: 20% 35% 2% 70%;
+    width: 25%;
+    }
+
+    #serviciosF {
+      display: flex;
+      flex-direction: row;
+
+    }
+
+    .btndiv {
+      width: 250px;
+      margin-right: 20%;
+    }
+
+    @media (max-width:500px) {
+      .imgfit {
+        display: none;
+      }
+
+      .demo {
+        margin-top: 75%;
+      }
+
+      .btndiv {
+        width: 24%;
+        margin-right: 6%;
+
+        .btn {
+          padding: 10px;
+        }
+      }
+
+
+      .cabecita {
+        display: block;
+      }
+
+      .ubica {
+        width: 29%;
+        margin-right: 0%;
+        font-size: 15px;
+        .bandera {
+          display: none;
+        }
+      }
+
+      .container-fluid {
+        justify-content: unset !important;
+      }
+    
+      #serviciosF {
+        display: flex;
+        flex-direction: column;
+      }
+      .nosotros-section {
+        width: 85%; 
+        text-align: center;
+      }
+
+
+      .torito-mecanico{
+        width: 100vw;
+        margin-left: 50px;
+      }
+
+      .canion {
+        width: 100vw;
+        margin-left: 50px;
+      }
+
+      .camera {
+        width: 100vw;
+        margin-left: 50px;
+      }
+
+      .burbujas {
+        width: 100vw;
+        margin-left: 50px;
+      }
+
+      .jumping {
+        width: 100vw;
+        margin-left: 50px;
+      }
+    }
+    
+
+    .btn {
+      padding: 20px 60px;
+      border: none;
+      outline: none;
+      position: relative;
+      z-index: 1;
+      border-radius: 5px;
+      background: linear-gradient(to right, #00FFA3, #DC1FFF);
+      cursor: pointer;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 4px;
+      bottom: 4px;
+      border-radius: 4px;
+      background-color: white;
+      z-index: -1;
+      transition: 200ms
+    }
+
+    .btn::after {
+      content: attr(data);
+      font-size: 20px;
+      background: linear-gradient(to left, #00FFA3, #DC1FFF);
+      -webkit-background-clip: text;
+      color: transparent;
+      transition: 200ms
+    }
+
+    .btn:hover::before {
+      opacity: 50%;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+    }
+
+    .btn:hover::after {
+      color: white;
+    }
+
+    .modal-target {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-target:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 90%; /* Full height */
+  margin-top: 7%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  opacity: 1 !important;
+  max-width: 1200px;
+}
+
+/* Caption of Modal Image */
+.modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1200px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  margin-top: 32px;
+}
+
+/* Add Animation */
+.modal-content, .modal-caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-atransform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+    @keyframes pulsing {
+  to {
+    box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+  }
+}
+
+ .botonWhat{
+  background-color: #42db87;
+  color: #fff;
+  width: 220px;
+  margin: auto;
+  height: 60px;
+  font-size:30px;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 0 0 #42db87;
+  -webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  transition: all 300ms ease-in-out;
+ }
+
+
+    #section03 a {
+  padding-top: 60%;
+}
+#section03 a span {
+  position: absolute;
+  margin-top: 20px;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin-left: -23px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+#section03 a span::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin: -12px 0 0 -8px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+#section03 a span::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: '';
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 0 0 0 rgba(0, 140, 255, 0.3);
+  border-radius: 100%;
+  opacity: 0;
+  -webkit-animation: sdb03 3s infinite;
+  animation: sdb03 3s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb03 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    box-shadow: 0 0 0 60px rgba(0, 140, 255, 0.4);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb03 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    box-shadow: 0 0 0 60px rgba(0, 140, 255, 0.5);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
