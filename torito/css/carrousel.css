@@ -74,3 +74,25 @@
     -webkit-overflow-scrolling: touch;
   }
   
+
+  @media (max-width:700px) {
+
+
+    .carousel-block {
+      width: 400px !important;
+    }
+  }
+
+
+  @media (min-width:700px) {
+    .carousel-block {
+      width: 500px !important;
+    }
+  }
+
+
+  @media (min-width:800px) {
+    .carousel-block {
+      width: 500px !important;
+    }
+  }
