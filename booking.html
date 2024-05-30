@@ -849,7 +849,7 @@ const raw = JSON.stringify({
     "cliente": document.getElementsByName('nombre')[0].value,
     "contacto": `${document.getElementsByName('tele')[0].value} ${document.getElementsByName('correo')[0].value}`,
     "servicios": selectedServicies,
-    "dia_hora": `${document.getElementsByName('fecha')[0].value} ${document.getElementsByName('fecha')[0].value}`,
+    "dia_hora": `${document.getElementsByName('fecha')[0].value} ${document.getElementsByName('hora')[0].value}`,
     "ubicacion": `${document.getElementsByName('dire')[0].value}`
   }
 });
@@ -861,7 +861,7 @@ const requestOptions = {
   redirect: "follow"
 };
 
-fetch("http://3.138.172.206:8010/products/mailTorito", requestOptions)
+fetch("https://services.solucionesen.tech/products/mailTorito", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.error(error));
