@@ -30,7 +30,7 @@
       //element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
       document.getElementById('nosotrosF').scrollIntoView();
     }
-
+    
     function toServicios() {
       console.log("servicios");
       closeMenu();
@@ -79,8 +79,7 @@
   <div id="menu" class="menu">
     <div class="menu-box">
       <h1 class="text-title " onclick="toInicio()">INICIO</h1>
-      <h1 class="text-title " onclick="toNosotros()">NOSOTROS</h1>
-      <h1 class="text-title " onclick="toServicios()">SERVICIOS</h1>
+      <a href="/booking.html"><h1 class="text-title " >RESERVA</h1></a> 
       <h1 class="text-title " onclick="toContacto()">CONTACTO</h1>
     </div>
   </div>
@@ -89,7 +88,7 @@
 
   <div class="video-container">
     <video autoplay muted loop>
-      <source src="../assets/party.mp4" type="video/mp4" />
+      <source src="./assets/videos/jumping1.mp4" type="video/mp4" />
     </video>
     <div class="caption">
       <img src="./assets/icons/icono2_w.png" width="30%" alt="" srcset="" style="margin: auto; ">

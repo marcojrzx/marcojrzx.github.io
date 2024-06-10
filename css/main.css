@@ -450,7 +450,7 @@
       }
 
       .menu {
-        margin-top: 220% !important;
+        top: 102px !important;
       }
 
     }
@@ -518,8 +518,8 @@
       height: 100vh;
       z-index: 999999999;
       background-color: #212b5cd0;
-      margin-top: 66%;
       position: fixed;
+      top: 102px;
     }
 
     .menuOpen {
