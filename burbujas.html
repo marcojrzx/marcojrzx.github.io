@@ -53,7 +53,7 @@
   <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary"
   style="height: 110px; background-color: #6e38be !important; box-shadow: 0px 10px 20px -7px rgba(0,0,0,0.75); justify-content: unset !important;">
   <div class="container-fluid">
-    <a class="navbar-brand tnav" href="#"><img class="d-none d-sm-none d-md-block toritoCom"
+    <a class="navbar-brand tnav" href="https://marcojrzx.github.io/index2.html"><img class="d-none d-sm-none d-md-block toritoCom"
         src="./assets/toritocompleto.png">
       <img class="cabecita" src="./assets/toritocabeza.png" alt="" style="width: 85px; margin-top: 3px;"></a>
       <div class="ubica">
@@ -78,9 +78,8 @@
   <!-- menu -->
   <div id="menu" class="menu">
     <div class="menu-box">
-      <h1 class="text-title " onclick="toInicio()">INICIO</h1>
-      <h1 class="text-title " onclick="toNosotros()">NOSOTROS</h1>
-      <h1 class="text-title " onclick="toServicios()">SERVICIOS</h1>
+      <h1 class="text-title " onclick="toInicioH()">INICIO</h1>
+      <a href="/booking.html"><h1 class="text-title " >RESERVA</h1></a> 
       <h1 class="text-title " onclick="toContacto()">CONTACTO</h1>
     </div>
   </div>
@@ -203,6 +202,12 @@
   <script>
 
     var hamburguer = 0;
+
+    function toInicioH() {
+      console.log("INICIO");
+      closeMenu();
+      window.location.href = "https://marcojrzx.github.io/index2.html";
+    }
 
     function closeMenu() {
       hamburguer -= 1;
