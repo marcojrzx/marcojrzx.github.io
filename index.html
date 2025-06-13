@@ -1,290 +1,394 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, height=device-height">
-  <title>Torito Playense</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MARS</title>
+    <style>
+        .abril-fatface-regular {
+            font-family: "Abril Fatface", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-    <link rel="stylesheet" href="css/main.css">
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Alpine.js -->
-  <script src="//unpkg.com/alpinejs" defer></script>
-  <script>
+        :root {
+            --max-width: 800px;
+            --side-padding: 1.2rem;
+        }
 
-    function toInicio() {
-      console.log("INICIO");
-      closeMenu();
-      window.scrollTo(0, -1)
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    function toNosotros() {
-      console.log("NOSOTROS");
-      closeMenu();
-      //const element = document.getElementById("nosotros");
-      //element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-      document.getElementById('nosotrosF').scrollIntoView();
-    }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-    function toServicios() {
-      console.log("servicios");
-      closeMenu();
-      //const element = document.getElementById("nosotros");
-      //element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-      document.getElementById('serviciosF').scrollIntoView();
-    }
+        header {
+            background-color: #cacaca;
+            color: white;
+            text-align: center;
+            padding: 1rem 1rem;
+            font-size: 3rem;
+            letter-spacing: 3px;
+            max-height: 250px;
+        }
 
-    function toContacto() {
-      console.log("toContacto");
-      closeMenu();
-      //const element = document.getElementById("nosotros");
-      //element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-      document.getElementById('contactoF').scrollIntoView();
-    }
-  </script>
+        .mars-text {
+            font-family: "Rozha One", serif;
+            font-size: 5rem;
+            margin: 10px;
+            letter-spacing: 3px;
+            background-image: url("/img/marte.webp");
+            background-position: center;
+            background-size: 30%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mars-text-red {
+            font-family: "Rozha One", serif;
+            font-size: 5rem;
+            margin: 10px;
+            letter-spacing: 3px;
+            background-image: url("https://oem.com.mx/elsoldemexico/img/22677408/1627041673/BASE_LANDSCAPE/480/image.webp");
+            background-position: center;
+            background-size: 315px;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        section {
+            margin: 1.5rem auto;
+            padding: 2rem var(--side-padding);
+            max-width: var(--max-width);
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: #ff6347;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .about-me h2 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .about-me button {
+            font-size: 1.5rem;
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        .categoria {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .categoria h3 {
+            margin-bottom: 1rem;
+        }
+
+        .categoria img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 999;
+            background: #eee;
+            color: #333;
+            border: none;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode #theme-toggle {
+            background: #333;
+            color: #fff;
+        }
+
+        /* DARK MODE OVERRIDES */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode header {
+            background-color: #1f1f1f;
+            color: #f1f1f1;
+        }
+
+        body.dark-mode section {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .about-me button {
+            background: #555;
+            color: white;
+        }
+
+        body.dark-mode li::before {
+            color: #ffa500;
+        }
+
+
+        /* Aplica sombra solo arriba */
+        .with-top-shadow {
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .desc {
+            text-align: justify;
+        }
+
+        /* Desktop adjustments */
+        @media (min-width: 768px) {
+            header {
+                font-size: 4rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .about-me h2 {
+                justify-content: space-between;
+            }
+
+            .about-me button {
+                margin-top: 0;
+            }
+
+            section {
+                padding: 2rem 2rem;
+            }
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
+
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary"
-    style="height: 110px; background-color: #6e38be !important; box-shadow: 0px 10px 20px -7px rgba(0,0,0,0.75); justify-content: unset !important;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img class="d-none d-sm-none d-md-block toritoCom"
-          src="./assets/toritocompleto.png">
-        <img class="cabecita" src="./assets/toritocabeza.png" alt="" style="width: 85px; margin-top: 3px;"></a>
-      <div class="btndiv">
-        <button class="btn" data="Book Now"></button>
-      </div>
+<body class="dark-mode">
+    <button id="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">☀️</button>
 
-    </div>
+    <header>
+        <h1 class="mars-text-red abril-fatface-regular">MARS</h1>
+    </header>
 
-    <div class="hamburguer">
-      <div class="line" id="top"></div>
-      <div class="line" id="center"></div>
-      <div class="line" id="bottom"></div>
-    </div>
-    <!-- menu -->
-    <div id="menu" class="menu">
-      <div class="menu-box">
-        <h1 class="text-title " onclick="toInicio()">INICIO</h1>
-        <h1 class="text-title " onclick="toNosotros()">NOSOTROS</h1>
-        <h1 class="text-title " onclick="toServicios()">SERVICIOS</h1>
-        <h1 class="text-title " onclick="toContacto()">CONTACTO</h1>
-      </div>
-    </div>
-    <!-- menu * -->
-  </nav>
+    <section class="info with-top-shadow">
+        <p class="desc">Mexicano de corazón 🇲🇽, fan de la música 🎶, la comida 🍷, el frío ❄️ y con una ligera
+            obsesión por los gatos 🐱. Trabajo como desarrollador web 💻 y siempre estoy aprendiendo algo nuevo,
+            últimamente sobre IA 🤖 y realidades que parecen de ciencia ficción 🕶️. Me encanta crear cosas, a veces
+            útiles… a veces solo por diversión 🚀.</p>
+    </section>
 
-  <div class="video-container">
-    <video autoplay muted loop>
-      <source src="../assets/party.mp4" type="video/mp4" />
-    </video>
-    <!--<div class="caption">
-        <img class="imgfit" src="../assets/toritocompleto.png" alt="">
-        <h1 class="prox">PROXIMAMENTE</h1>
-        <h3 style="color:white"> CONTACTO </h3>
-       <a href="https://www.facebook.com/profile.php?id=100088666271939&locale=es_LA" target="_blank" rel="noopener noreferrer"> <img src="assets/face.png" width="5%"></a>
-       <a href="https://wa.me+5212224479066 " target="_blank" rel="noopener noreferrer"> <img src="../assets/whats.png" alt="" width="5%"></a>
-
-    </div>-->
-    <div class="caption">
-      <img class="imgfit" style="margin: auto;" src="../assets/toritocompleto.png" alt="">
-      <h1 class="prox">DIVERSION SEGURA PARA TODA LA FAMILIA</h1>
-      <section id="section03" class="demo">
-        <a href="#section04"><span></span></a>
-      </section>
-  </div>
-    
-  </div>
-
-<div>
-  
-</div>
-
-  <div id="nosotros" class="section">
-    <div class="sectionIN">
-      <h1 class="text-title-nosotros" style="font-size: 50px;">NOSOTROS</h1>
-      <div id="nosotrosF" style="display: flex;
-      justify-content: space-around; margin-bottom: 50px;">
-        <img class="modal-target" src="./assets/imgs/nosotros2.jpeg" width="30%" style="transform: rotate(10deg); border-radius: 20px;">
-        <img class="modal-target" src="./assets/imgs/nosotros1.jpeg" width="30%" style="border-radius: 20px">
-        <img class="modal-target" src="./assets/imgs/nosotros1.jpeg" width="30%" style="transform: rotate(-10deg); border-radius: 20px">
-      </div>
-      <p class="text-description">Atracciones Torito Playense es una empresa
-        100% Quintanaroense dedicada a la animación y
-        diversión de niños y adultos.</p><br>
-      <p class="text-description">Nuestro empresa surge a partir de la pasión  por ofrecer diversión familiar sana y  al alcance de todos, preservando la bonita tradición del TORITO MECANICO.</p><br>
-      <p class="text-description">El Torito Playense se ha consolidado en nuestro
-        bello estado, como una empresa con un
-        concepto único, original y divertido para la
-        distracción de toda la familia.</p>
-    </div>
-
-  </div>
-  <div id="servicios" class="section">
-    <div class="sectionIN">
-      <h1 class="text-title-nosotros" style="font-size: 50px;">SERVICIOS</h1>
-      <div id="serviciosF">
-        <div style="display: flex;
-      justify-content: space-around; margin-bottom: 50px;">
-          <div class="jumping">
-            <div class="overlay">
-              <img src="./assets/icons/icono2_w.png" alt="" srcset="">
-              <h1 class="text-title">JUMPING INFLABLES</h1>
-              <button id="info-btn">+info</button>
-            </div>
-          </div>
+    <section class="contacto with-top-shadow">
+        <h3>Contacto</h3>
+        <div style="display: flex; flex-direction: row; ">
+            <img  style="max-width: 38%; max-height: 33%;" src="/img/signal.jpg" alt="" srcset="">
+            <img style="max-width: 35%; max-height: 35%;" src="/img/telegram.jpg" alt="" srcset="">
         </div>
-        <div style="display: flex;
-      justify-content: space-around; margin-bottom: 50px;">
-          <div class="torito-mecanico">
-            <div class="overlay">
-              <img src="./assets/icons/icono1_w.png" alt="" srcset="">
-              <h1 class="text-title">TORITO MECANICO</h1>
-              <p style="font-size: 18px; color: white;"> Adultos y niños </p>
-              <button id="info-btn">+info</button>
-            </div>
-          </div>
+    </section>
+
+    <section class="about-me with-top-shadow">
+        <h3>Lanza el <button onclick="mostrarCategoria()">🎲</button></h3>
+        <div id="categoria" class="categoria">
+            <h3></h3>
+            <img id="gif" src="" alt="" />
+            <p id="descripcion"></p>
         </div>
-        <div style="display: flex;
-      justify-content: space-around; margin-bottom: 50px;">
-          <div class="camera">
-            <div class="overlay">
-              <img src="./assets/icons/icono3_w.png" alt="" srcset="">
-              <h1 class="text-title">Camara 360</h1>
-              <button id="info-btn">+info</button>
-            </div>
-          </div>
-        </div>
-        <div style="display: flex;
-      justify-content: space-around; margin-bottom: 50px;">
-          <div class="canion">
-            <div class="overlay">
-              <img src="./assets/icons/icono5_w.png" alt="" srcset="">
-              <h1 class="text-title">CAÑON DE ESPUMA</h1>
-              <button id="info-btn">+info</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    </section>
 
-    </div>
+    <script>
+
+        const categorias = [
+
+            {
+                titulo: "🏅 Deportistas",
+                color: "#8b0000",
+                tituloD: 'Michael Jordan',
+                desc: 'Los receurdo de niño viendolo jugar.',
+                gif: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHZsemtwY3o4YTU2dTAza2MxZXlzOWFwb2ZsdTdzMjVlMjU4aGl1MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iPg2OZbNXc7uM/giphy.gif'
+
+            },
+            {
+                titulo: "🏅 Deportistas",
+                color: "#8b0000",
+                tituloD: 'CR7',
+                desc: 'Soy team Cristiano.',
+                gif: 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXR5NWRlNDA2b2drNDFnYzdseXRjdjJuZjI5aW1sMjFmdWd6ejVpeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/r1IMdmkhUcpzy/giphy.gif'
+
+            },
+            {
+                titulo: "🏅 Deportistas",
+                color: "#8b0000",
+                tituloD: 'Checo',
+                desc: 'La mejor temporada 2022.',
+                gif: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnJhbjdubGVxOTU3M3RnZ2oxdHcyd25haDNiZHVkeHlxdmFlOTkzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4N2lcQcIv2idbhtbQm/giphy.gif'
+
+            },
+
+            {
+                titulo: "🎵 Música",
+                color: "#ff7f50",
+                tituloD: 'Cafe Tacvba',
+                desc: 'Debes de escuchar: Las flores',
+                gif: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWlrczJ6MmFubXd4OHowOHdiNjd1OHE5b2Eza2s0cmw5ZG83YzhpYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6MhqPjm5sq7R6Qw00H/giphy.gif'
+
+            },
+            {
+                titulo: "🎵 Música",
+                color: "#ff7f50",
+                tituloD: 'Pink Martini',
+                desc: 'Debes de escuchar: Over the valley',
+                gif: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTh3dTJpYmR5ZmltcTJmOGo0ZHAzdnFwZmNvanUxNzVwYTVwbnkyMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/s7PoocNnMbOpy/giphy.gif'
+
+            },
+            {
+                titulo: "🎵 Música",
+                color: "#ff7f50",
+                tituloD: 'Verdi',
+                desc: 'Requiem: Dies Irae ',
+                gif: 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXJ0N3Q5eGljZDZtb3Fhdmw5Z2ducm0wNG50azNvZjdsazJnamF2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6ZsZbg0dtVMUFrri/giphy.gif'
+
+            },
+            {
+                titulo: "🎵 Música",
+                color: "#ff7f50",
+                tituloD: 'Nat King Cole',
+                desc: 'Nature Boy',
+                gif: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGdpMXE5amYydTFrY3JjMHVvYnd1dGdvZHBvc2NkMGtsbHN3NHJwayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5XgP4ilQaIqJWq96ea/giphy.gif'
+
+            },
+            {
+                titulo: "🎵 Música",
+                color: "#ff7f50",
+                tituloD: 'Mercedes Sosa',
+                desc: 'Alfonsina Y El Mar',
+                gif: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnM0dGs4bG1yNHZnd2VibWd1dHNzd2hsYXM5dzBxMXM4NHpwcmVsaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/G0MJmNZCoDdrjfMo7H/giphy.gif'
+
+            },
+            {
+                titulo: "🎵 Música",
+                color: "#ff7f50",
+                tituloD: 'Trio los Panchos',
+                desc: 'La Malagueña Salerosa',
+                gif: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGZrZ3NvdTdobXlybDdqa3Rld2RxNDZpeDYxejVwcDE0cjBqdnR2aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xotWxiN3xNNHtcrkgN/giphy.gif'
+
+            },
+            {
+                titulo: "🎬 Películas",
+                color: "#4b0082",
+                tituloD: 'Blade Runner',
+                desc: '',
+                gif: 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzV1NTNzaDJiMmYxNXA2b3c0OTJzZ2I3bGwwbWExbDRteXQwZmZ5MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PF1nl1XCM6aze/giphy.gif'
+
+            },
+            {
+                titulo: "🎬 Películas",
+                color: "#4b0082",
+                tituloD: 'Once upon time in America',
+                desc: '',
+                gif: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHNiN2k4bmwxaHVtNHc5aWlkanh4aWlsbjNjMTdzbTVrbnMwaHQxbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MIGI5H7YWJuaA/giphy.gif'
+
+            }
+            , {
+                titulo: "🎬 Películas",
+                color: "#4b0082",
+                tituloD: 'Lord of the Rings',
+                desc: '',
+                gif: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTlxbG4ydTY4anE5ZW5scTRsdjFpbm82Mzl1NDJyeTQwMHE3em5iaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2XflxzGoMXkpe9bvyk8/giphy.gif'
+
+            }
+        ];
+        let colors = '';
+        let ultimaCategoriaIndex = -1;
+        function mostrarCategoria() {
+            let nuevaIndex;
+            let totaal = categorias.length + 1;
+            do {
+                nuevaIndex = Math.floor(Math.random() * totaal);
+            } while (nuevaIndex === ultimaCategoriaIndex);
+
+            ultimaCategoriaIndex = nuevaIndex;
+            this.random = categorias[nuevaIndex];
+            const catDiv = document.getElementById("categoria");
+            this.colors = random.color;
+            catDiv.style.backgroundColor = this.random.color;
+            catDiv.querySelector("h3").innerHTML = this.random.titulo + '<small> fav</small>';
+            document.getElementById("gif").src = this.random.gif;
+            document.getElementById("descripcion").innerHTML = this.random.desc ? '<p> ' + this.random.tituloD + ', ' + this.random.desc + ' </p>' : ' <p> ' + this.random.tituloD + ' </p>';
+        }
+
+        function toggleDarkMode() {
+            const body = document.body;
+            const toggleBtn = document.getElementById("theme-toggle");
+
+            body.classList.toggle("dark-mode");
+            toggleBtn.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        }
 
 
-  </div>
-    <div class="video-container">
-      <video autoplay muted loop>
-        <source src="../assets/party.mp4" type="video/mp4" />
-      </video>
-      <div class="w-full h-screen   justify-center contact" style="text-align: center; ">
-        <h1 class="text-title-nosotros" style="font-size: 50px; margin-top: 40px;">Contacto</h1>
-        <h1 class="text-title-nosotros" style="font-size: 35px;"> No esperes más y agenda tu fiesta</h1>
-        <h1 class="text-title-nosotros" style="font-size: 35px; margin-top: -20px;"> contactanos para tener más información sobre costos</h1>
-        <div style="display: flex; justify-content: center; width: 80%; margin: auto;">
-          <div id="contactoF" style="display: flex; align-items: center; justify-content: center; width: 60%; margin: auto;">
-            <img src="./assets/icons/whats.png" width="15%" alt="" srcset="">
-            <div style="width: 60%">
-              <h1 class="text-contact"  style="margin: auto;" > 984 239 99 42 </h1>
-              <div style="margin-top: 15px;" ></div>
-              <a href="https://wa.me/+5219842399942/?text='¡Quiero contratar sus servicios para mi fiesta!'" target="_blank" rel="noopener noreferrer"> <button class="botonWhat">ir WhatsApp</button></a>
-            </div>
-          </div>
-          <div style="width: 35%; ">
-<a href="https://www.facebook.com/profile.php?id=100088666271939&locale=es_LA" target="_blank" rel="noopener noreferrer"> <img src="./assets/icons/face.png" width="25%" alt="" srcset=""></a>
-          </div>
-        </div>
-        
-        <div>
+    </script>
 
-        </div>
-        <h1 class="text-title-nosotros" style="font-size: 35px; margin-top: 15px; margin-bottom: 5px;"> Metodos de pago</h1>
-        <p class="text-subtitle" style="font-size: 25px;"> Efectivo. </p>
-        <p class="text-subtitle" style="font-size: 25px;"> Transferencia electrónica. </p>
-        <p class="text-subtitle" style="font-size: 25px;"> Pago con tarjeta de credito o debito. </p>
-        <div style="margin: auto; width: 50%;     display: flex; align-items: center; justify-content: center;" >
-          <img src="./assets/icons/visa.png"  width="100px" alt="" srcset="">
-          <img src="./assets/icons/master.png"  width="100px"  alt="" srcset="">
-        </div>
-      </div>
-    </div>
-    
-
-  
-  <!-- The Modal -->
-  <div id="modal" class="modal">
-    <span id="modal-close" class="modal-close">&times;</span>
-    <img id="modal-content" class="modal-content">
-    <div id="modal-caption" class="modal-caption"></div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
-    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-
-  <script>
-
-    var hamburguer = 0;
-
-    function closeMenu() {
-      hamburguer -= 1;
-      $("#top").removeClass('top');
-      $("#center").removeClass('center');
-      $("#bottom").removeClass('bottom');
-      $("#menu").removeClass('menuOpen');
-      $("body").removeClass('blockY')
-    }
-
-    $('.hamburguer').click(function () {
-
-      if (hamburguer == 0) {
-        hamburguer += 1;
-        $("#top").addClass('top');
-        $("#center").addClass('center');
-        $("#bottom").addClass('bottom');
-        $("#menu").addClass('menuOpen');
-        $("body").addClass('blockY')
-
-      } else {
-        hamburguer -= 1;
-        $("#top").removeClass('top');
-        $("#center").removeClass('center');
-        $("#bottom").removeClass('bottom');
-        $("#menu").removeClass('menuOpen');
-        $("body").removeClass('blockY')
-      }
-    }); 
-  </script>
-  <script>
-    // Modal Setup
-var modal = document.getElementById('modal');
-
-var modalClose = document.getElementById('modal-close');
-modalClose.addEventListener('click', function() { 
-  modal.style.display = "none";
-});
-
-// global handler
-document.addEventListener('click', function (e) { 
-  if (e.target.className.indexOf('modal-target') !== -1) {
-      var img = e.target;
-      var modalImg = document.getElementById("modal-content");
-      var captionText = document.getElementById("modal-caption");
-      modal.style.display = "block";
-      modalImg.src = img.src;
-      captionText.innerHTML = img.alt;
-   }
-});
-
-  </script>
-  <script>
-    
-  </script>
 </body>
-
 
 </html>
