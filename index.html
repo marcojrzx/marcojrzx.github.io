@@ -250,11 +250,17 @@
     </section>
 
     <section class="about-me with-top-shadow" >
-        <button onclick="mostrarCategoria()">🎲</button>
+        <div id="dado1">
+            <button onclick="mostrarCategoria()" style="font-size: 2.5rem;">🎲</button>
+            <h2 style="padding: 5% 22%;">Tira el Dado</h2>
+        </div>
+        <div id="dado2" style="display: none;">
+            <button onclick="mostrarCategoria()">🎲</button>
         <div id="categoria" class="categoria" style="color: white !important;">
             <h3></h3>
             <img id="gif" src="" alt="" />
             <p id="descripcion"></p>
+        </div>
         </div>
     </section>
 
@@ -266,7 +272,7 @@
                 titulo: "🏅 Deportistas",
                 color: "#8b0000",
                 tituloD: 'Michael Jordan',
-                desc: 'Los receurdo de niño viendolo jugar.',
+                desc: '',
                 gif: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHZsemtwY3o4YTU2dTAza2MxZXlzOWFwb2ZsdTdzMjVlMjU4aGl1MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iPg2OZbNXc7uM/giphy.gif'
 
             },
@@ -358,6 +364,14 @@
                 desc: '',
                 gif: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTlxbG4ydTY4anE5ZW5scTRsdjFpbm82Mzl1NDJyeTQwMHE3em5iaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2XflxzGoMXkpe9bvyk8/giphy.gif'
 
+            },
+            {
+                titulo: "🎬 Películas",
+                color: "#4b0082",
+                tituloD: 'El Secreto de sus Ojos',
+                desc: '(Argentina)',
+                gif: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW0xZWtxMmZlZzk1dGhqcm14NXo3OXNtaDF1d2l1ZGFzMGRheHJmcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohhwKAVoZxStsoiXe/giphy.gif'
+
             }
         ];
         let colors = '';
@@ -377,6 +391,8 @@
             catDiv.querySelector("h3").innerHTML = this.random.titulo + '<small> fav</small>';
             document.getElementById("gif").src = this.random.gif;
             document.getElementById("descripcion").innerHTML = this.random.desc ? '<p> ' + this.random.tituloD + ', ' + this.random.desc + ' </p>' : ' <p> ' + this.random.tituloD + ' </p>';
+            document.getElementById('dado1').style.display = 'none';
+            document.getElementById('dado2').style.display = 'block';
         }
 
         function toggleDarkMode() {
